@@ -10,8 +10,6 @@ def get_choices():
 
 
 def check_win(player_choice, computer_choice):
-
-
   # SAME CHOICE
   if player_choice == computer_choice:
     answer = "there was a tie"
@@ -60,4 +58,12 @@ def rock_paper_scissor_game():
   return
 
 
-print(rock_paper_scissor_game())
+def math_stuff(age):
+  for index, i in enumerate(age):
+    print("tu mai", i, index)
+
+  return "la tulla en 4"
+
+
+print(math_stuff(['h', 'b', 'j', 'c', 'p']))
+# print(rock_paper_scissor_game())
