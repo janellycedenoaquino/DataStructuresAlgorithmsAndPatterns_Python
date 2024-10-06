@@ -57,13 +57,4 @@ def rock_paper_scissor_game():
 
   return
 
-
-def math_stuff(age):
-  for index, i in enumerate(age):
-    print("tu mai", i, index)
-
-  return "la tulla en 4"
-
-
-print(math_stuff(['h', 'b', 'j', 'c', 'p']))
 # print(rock_paper_scissor_game())
