@@ -47,6 +47,7 @@ def calculateExpense(total, expenseList):
 
 
 op1 = reduce(calculateExpense, expenses, 0)
-# op2 = reduce(lambda a, b: a[1] + b[1], expenses)
+op3 = reduce(lambda a, expense: a + expense[1], expenses, 0)
+
 print(op1)
-# print(op2)
+print(op3)
