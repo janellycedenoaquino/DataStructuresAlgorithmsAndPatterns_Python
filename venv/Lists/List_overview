@@ -13,18 +13,18 @@ Indexes work a bit different:
 len() gets you the length of the list or length of I think anything...
 
 methods in Lists:
-1) append adds to the end
-2) insert adds to a specific part of list
+1) append() adds to the end
+2) insert() adds to a specific part of list
     ex: myList.insert(1, "a") at index 1 it inserts "a"
-3) pop deletes the last element of the array
+3) pop() deletes the last element of the array
     if assigned to something you can print what you deleted
     ex:  deletedVal = myList.pop()
           should delete false and assigned deletedVal to false
-4) remove also removes the method, but you have to pass the method you want removed
+4) remove() also removes the method, but you have to pass the method you want removed
     ex: remove("a") you pass down the value to be removed
-5) clear removes all elements
-6) reverse reverses the list
-7) sort sorts your list in place changing the original list
+5) clear() removes all elements
+6) reverse() reverses the list
+7) sort() sorts your list in place changing the original list
     to avoid changing your list use sorted and assign it to new list
     ex: myList.sort()  <-- chages your list
         newList = sorted(myList) <-- creates a new list and assigns the sorted result of old list
@@ -33,7 +33,7 @@ you can concatenate two lists with the plus operator
   ex: mylist + ["a", "b", 7, 2]
   should give you: [1, "a", var, false, "a", "b", 7, 2]
 
-you can cut and store certain parts of the list
+you can slice and store certain parts of the list
   ex: a = myList[2:4] <-- does not include index 4 which does not exist in this list
       a = myList[:4] <-- not specifying the first index includes the entire beginning
       a = myList[2:] <-- not specifying the second index includes the entire end
