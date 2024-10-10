@@ -1,0 +1,30 @@
+objects in JS are very similar and almost the same as python dictionaries
+
+1) the key can only e something that is immutable string, int, tuple...
+ex:   myObject = { "name": "Janelly", "age": 21, "city": "NY"}
+      myObject = dict(name="Janelly, age=21, city="NY")
+
+2) finding the value of key in your object
+ex:   myObject["name"] should equal Janelly
+
+3) it is mutable so you can add or change or delete values in the obj
+ex:   myObject["height"] = "54in"
+ex:   del myObject["height"] or myObject.pop("height")
+ex:   myObject.popItem() <-- pops the last item added to Object
+
+
+4) looping through dictionary
+ex:     for key in myObject.keys():   or  for value in myObject.values()
+              print(key)                    print(value)
+
+ex:     for key, value in myObject.items:
+            print(key, value)
+
+when making a copy modifying it changes the original because it is pointing
+to the same place in memory to avoid this you can do this:
+    newObj = myObject.copy()    or    newObj = dict(myObject)
+
+5) merging two objects
+ex: obj1 = {"something1": 1 "something2": "merged"}   obj2 = {"something2": 2}
+      obj1.update(obj2) --> anything in common will change to the value of 2
+
