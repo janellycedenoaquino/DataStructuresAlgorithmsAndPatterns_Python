@@ -20,9 +20,8 @@ class myList:
       return last_item
 
     def clear_items(self):
-      for item in self.allItems:
-        print(item)
-        self.allItems.remove(item)
+        self.allItems.clear()
+
 
     def print_items(self):
       idx = 0
@@ -38,14 +37,15 @@ class myList:
 
 newList = myList(["a", "b", "c", 1, 2, 3])
 newList.print_items_clean()
-newList.append_item(7)
-newList.print_items_clean()
-newList.remove_item("b")
-newList.print_items_clean()
-poppedItem = newList.pop_item()
-newList.print_items_clean()
+# newList.append_item(7)
+# newList.print_items_clean()
+# newList.remove_item("b")
+# newList.print_items_clean()
+# poppedItem = newList.pop_item()
+# newList.print_items_clean()
 newList.clear_items()
-print(poppedItem)
+# print(poppedItem)
+print("after clear: ")
 newList.print_items_clean()
 
 
