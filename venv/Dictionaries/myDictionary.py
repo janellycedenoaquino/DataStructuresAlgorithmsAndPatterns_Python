@@ -37,10 +37,6 @@ class MyObject:
 dictionary = MyObject({"a": 1, "b": 2, 4: 8})
 realDict = {"a": 1, "b": 2, 4: 8}
 
-
-# print(dictionary.item_values())
-# print(realDict.items())
 print(dictionary.Obj_Items())
-
 print(realDict.items())
 print(dictionary.Obj_Items())
