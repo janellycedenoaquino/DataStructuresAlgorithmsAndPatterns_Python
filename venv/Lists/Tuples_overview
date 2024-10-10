@@ -31,3 +31,12 @@ if you only have one element in your tuple you must add a comma next to it
 
 
 
+# list1-to-set = {list1} <-- this gives an error
+# because lists are not immutable and can change at any moment
+
+# tuple2_set = {tuple2} <-- this gives an error because an element
+# who happens to be a list is in the tuple and lists are mutable
+
+
+
+
