@@ -1,16 +1,26 @@
-tuple1 = (10, 20)
-tuple2 = (1, 2, 3, 4, [5, 6], 7)
-list1 = [10, 20]
+class myTuple:
+
+    allElements = []
+
+    def __init__(self, elements):
+        self.allElements = elements
+        self.allElements = tuple(self.allElements)
+
+    def index_element(self, idx):
+        return self.allElements[idx]
+
+    def count_element(self, element):
+        count = 0
+        for item in self.allElements:
+            if element == item:
+                count += 1
+        return count
 
 
-tuple1_set = {tuple1}
-# list1-to-set = {list1} <-- this gives an error
-# because lists are not immutable and can change at any moment
+newTuple = myTuple([1, 2, 3, 3, 3, 3, 4, 5])
+actualTuple = (1, 2, 3, 4, 5)
 
-# tuple2_set = {tuple2} <-- this gives an error because an element
-# who happens to be a list is in the tuple and lists are mutable
-# tuples are only hashable if the items in the tuple are all hashable
 
-print(f"tuple1: {tuple1[1]} \nlist1:  {list1[1]}")
-print(tuple1_set)
+print(actualTuple.count(3))
+print(newTuple.count_element(3))
 
