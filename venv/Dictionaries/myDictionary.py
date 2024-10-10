@@ -32,15 +32,3 @@ class MyObject:
         for key in self.obj:
             obj_items.append(tuple([key, self.obj[key]]))
         return f"obj_items({obj_items})"
-
-
-dictionary = MyObject({"a": 1, "b": 2, 4: 8})
-realDict = {"a": 1, "b": 2, 4: 8}
-
-
-# print(dictionary.item_values())
-# print(realDict.items())
-print(dictionary.Obj_Items())
-
-print(realDict.items())
-print(dictionary.Obj_Items())
