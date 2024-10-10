@@ -1,4 +1,4 @@
-class myTuple:
+class MyTuple:
 
     allElements = []
 
@@ -17,7 +17,7 @@ class myTuple:
         return count
 
 
-newTuple = myTuple([1, 2, 3, 3, 3, 3, 4, 5])
+newTuple = MyTuple([1, 2, 3, 3, 3, 3, 4, 5])
 actualTuple = (1, 2, 3, 4, 5)
 
 
