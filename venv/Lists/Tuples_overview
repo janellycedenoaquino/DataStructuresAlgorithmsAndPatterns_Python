@@ -1,0 +1,33 @@
+a tuple is an ordered immutable list of elements
+1) once created it's elements can not be changed
+2) it is fixed in size at the time of creation length can not be modified
+3) can hold elements of different types
+4)used to store heterogeneous data of different types
+5) it is basically a read only data type which makes it faster than a list
+6) it allows duplicate elements
+7) you can search
+
+ex:
+    myTuple = (1, "a", "a", "b", false, "a", "a", 29)
+                    or
+    myTuple = 1, "a", "b", false, 29
+
+if you only have one element in your tuple you must add a comma next to it
+    ex: myTuple = "a",      or      myTuple = ("a",)
+
+  METHODS:
+1) tuple() turns any list to a tuple and list() turns tuple to list
+2) you can find elements by index ex: myTuple[0] gives you the 1st element
+3) negative index also give you the last item, second to last etc...
+4) you can not change values in tuples so mytuple[0] = "something" will give you an error.
+5) len(myTuple) gives you the length of the tuple
+6) count() counts how many instances of something you have inside your tuple
+    ex: myTuple.count("a") <-- returns 4 because there are four "a" in your list
+7) index() finds the first occurrence of that element
+    ex: myTuple.index("a") <-- gives you 1 because that is where the first instance is
+8) slicing is the same way with list and tuples
+    ex: myTuple[2:7] gives you all elements from idx 2 to 6 not including 7
+     works the same way as with lists
+
+
+
