@@ -1,0 +1,37 @@
+a collection data type like lists and tuples
+1) it is unordered, mutable and accepts no duplicates
+2) if you try to add any duplicate numbers they wont be added.
+
+a set looks like this:
+ex:     mySet = {1, 2, 3, 4} or if empty initialize as mySet = set()
+but can also be created like this:  mySet = set([1,2,3,4]) same output
+ex: mySet = set("Hello") the output --> {'o', 'l', 'H', 'e'}
+
+
+Methods:
+1) add()      ex: mySet.add(1)
+2) remove()   ex: mySet.remove(4) error if item doesn't exist
+3) discard()  ex: mySet.discard(4) does the same as remove without error
+4) clear()    ex: mySet.clear() deletes all items in set
+
+these methods will not modify the original set. returns new set
+5) union()    ex: mySet.union(other_set)
+    combines elements from both sets without duplication
+6) intersection()   ex: mySet.intersection(other_set)
+    intersection is what they have in common
+7) difference()   ex: mySet.difference(other_set)
+    only returns the numbers they each have different
+8) symmetric_difference()  ex: mySet.symmetric_difference(other_set)
+     only the values they don't have in common
+
+9) issubset()     ex: mySet.issubset(other_set)
+      returns boolean is subset or not
+10) issuperset()  ex: mySet.issuperset(other_set)
+      returns boolean tests the opposite of issubset() checks if
+       all items in mySet are already in other_set
+11) isdisjoint()  ex: mySet.isdisjoint()
+      checks if they have nothing in common and returns boolean
+      ex: if other_set = {7,8} it will return true
+12) frozenset()   ex: frozenset(mySet) makes it immutable 
+
+making a copy sets a pointer in memory. to avoid just create new set
