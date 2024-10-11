@@ -1,0 +1,16 @@
+# itertools: product, permutations, combinations, accumulate, groupby & infinite iterators
+
+# product
+a = [1,2]
+b = [3]
+prod = product(a,b) --> [(1, 3), (2, 3)]
+prod = product(a, b, repeat=2) --> [(1, 3, 1, 3), (1, 3, 2, 3), (2, 3, 1, 3), (2, 3, 2, 3)]
+
+if you don't specify repeat it will only combine once
+if you repeat 2x it will combine both ways so 1,3 and 3,1
+
+
+# permutations
+a = [1, 2, 3] -->
+gives all different possible permutations
+
