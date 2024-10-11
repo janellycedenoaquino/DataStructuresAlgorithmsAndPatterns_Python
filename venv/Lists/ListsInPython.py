@@ -29,10 +29,8 @@ class myList:
             idx += 1
 
     def print_items_clean(self):
-        str = ""
-        for i in self.allItems:
-            str += f"{i}, "
-        print(str)
+        str_r = ", ".join(str(i) for i in self.allItems)
+        print(str_r)
 
     def reverse_items(self):
         left = 0
