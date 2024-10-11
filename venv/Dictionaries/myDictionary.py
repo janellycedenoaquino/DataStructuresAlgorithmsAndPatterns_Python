@@ -25,7 +25,7 @@ class MyObject:
         listOfKeys = []
         for keys in self.obj.keys():
             listOfKeys.append(keys)
-        return
+        return listOfKeys
 
     def Obj_Items(self):
         obj_items = []

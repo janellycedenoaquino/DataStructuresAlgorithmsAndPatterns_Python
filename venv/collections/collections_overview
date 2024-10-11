@@ -1,0 +1,45 @@
+Collections: counter, namedtuple, OrderedDict, defaultdict, deque
+collections has methods we can use to manipulate data
+import necessary methods from collections
+
+var1 = "accceef"
+METHODS:
+
+    from collections import Counter
+1) Counter()  ex: Counter(var1)  returns Counter({'a':1, 'c':3, 'e':2, 'f':1})
+  - an object with all letters / parts counted if stored you can use it as an obj
+
+  - most_common() has methods like gives you the most common
+  - ex: Counter(var1).most_common(1) --> it gives you the 1st if (2) gives you 1st two
+
+  - elements() gives you the collections elements
+
+    from collections import namedtuple
+2) namedTuple()  ex: Point = namedTuple('Point', 'x,y' ) --> p = Point(1, 6)
+   - returns: Point(x=1,y=6)   p.x --> returns 1, p.y --> returns 6
+
+   from collections import OrderedDict
+3) OrderedDict()  -- same as regular object but sorted!! orderedObj = OrderedDict()
+   - regular dictionaries are now ordered so no need for this
+
+   from collections import defaultDict
+4) defaultdict() -- ex: d = defaultdict(int) an int will be default if not assigned
+   - same as a regular dict but it assigns a default value to the unassigned properties
+   - ex: if value not in the dict returns 0 ex d['a'] returns 0 because a is not in the dict
+   - a regular dict will raise an error but default won't
+
+   from collections import deque
+5) deque()    ex: d = deque()
+   - a deque is a double ended queue that is used to add or remove elements from bothe ends
+   - it has inner methods like:
+        - append() --> appends regularly at the end
+        - appendleft() --> appends at the beginning
+        - pop()  --> deletes last value
+        - popleft() --> deletes first value ()
+        - extend([1,2])  --> pass down a list and adds it to the end [...1,2]
+        - extendleft([1,2]) --> pass down a list and adds to the beginning in lifo  [2,1...]
+        - rotate(4) -->  rotates all elements (4) places to the right
+        - rotate(-2) -->  rotates all elements (2) places to the left
+
+    this one isn't from the collections import but it's cool
+) list() ex: list(Counter(ver1).elements()) gives you the value back in a list
