@@ -1,0 +1,22 @@
+python strings work almost exactly like they do in javascript
+strings are ordered, immutable, text representation
+ex: my_string = "Hello     World"
+
+immutable means you can't change individual characters
+you can re-assign but not change ex:  S = "s"   s[0] = "S" == error
+
+except for:
+slicing: my_string[2:4] from index 2 not including 4
+
+
+METHODS:
+1) strip()  ex: my_string.strip() cuts all white spaces --> "HelloWorld"
+2) upper()  ex: my_string.upper() all letters become uppercase
+3) lower()  ex: my_string.lower() all letters become lowercase
+4) startsWith()  ex: my_string.startsWith() starts with given letter boolean
+5) endsWith()  ex: my_string.endsWith() ends with given letter boolean
+6) find() ex: my_string.find('l') finds first instance of value --> 2
+7) count()  ex: my_string.count('l') counts all instances of l --> 3
+8) replace()  ex: my_string.replace("r") returns new string
+9) split()  ex: my_string.split() converts it to a list
+10) join()  ex: my_string.join() concatenates a list to a string
