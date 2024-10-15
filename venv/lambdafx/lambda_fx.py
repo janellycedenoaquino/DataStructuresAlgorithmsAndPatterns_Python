@@ -1,5 +1,5 @@
 # lambda arguments: expression <-- this is the lambda structure
-
+from functools import reduce
 
 # ex:
 def addTen(x):
@@ -29,9 +29,41 @@ print("_____________________________________________\n\n")
 
 
 # lamda using sorted map filter and reduce
-# sorted
+# sorted(iterable, function)
 points2D = [(1, 2), (15, 1), (5, -1), (10, 4)]
 sorted_points2D = sorted(points2D, key=lambda x: x[1])
+sorted_points2DSum = sorted(points2D, key=lambda x: x[0]+x[1])
 print(points2D)
-print(sorted_points2D) # sorts it by the second index the smallest
+print(sorted_points2D)  # sorts it by the second index the smallest
+print(sorted_points2DSum)  # sorts it by the sum of each
+
+
+print("_____________________________________________\n\n")
+# map(function, iterable)
+a = [1, 2, 3, 4, 5, 6, 7]
+b = map(lambda x: x*2, a)
+print("b = ", list(b))
+
+
+# list comprehensions
+c = [x*2 for x in a]
+print("c = ", list(c))
+
+
+print("_____________________________________________\n\n")
+# filter(function, iterable)
+d = filter(lambda x: x % 2 == 0, a)
+print("d = ", list(d))
+
+# list comprehensions
+e = [x for x in a if x %2 == 0]
+print("e = ", list(e))
+
+
+
+print("_____________________________________________\n\n")
+# reduce(function, iterable) combines everything
+f = reduce(lambda x, y: x*y, a)
+print("f = ", f)
+
 
