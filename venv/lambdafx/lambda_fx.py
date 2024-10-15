@@ -1,5 +1,5 @@
 # lambda arguments: expression <-- this is the lambda structure
-from itertools
+
 
 # ex:
 def addTen(x):
@@ -31,4 +31,7 @@ print("_____________________________________________\n\n")
 # lamda using sorted map filter and reduce
 # sorted
 points2D = [(1, 2), (15, 1), (5, -1), (10, 4)]
-# sorted_points2D =
+sorted_points2D = sorted(points2D, key=lambda x: x[1])
+print(points2D)
+print(sorted_points2D) # sorts it by the second index the smallest
+
