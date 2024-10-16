@@ -66,4 +66,10 @@ print("_____________________________________________\n\n")
 f = reduce(lambda x, y: x*y, a)
 print("f = ", f)
 
+g = ['H', 'e', 'l', 'l', 'o']
+h = reduce(lambda x, y: x+y, g)
+print("h: ", h)
 
+i = [5, 4, 3, 2, 1]
+j = reduce(lambda x, y: x*y, i)
+print("j: ", j)
