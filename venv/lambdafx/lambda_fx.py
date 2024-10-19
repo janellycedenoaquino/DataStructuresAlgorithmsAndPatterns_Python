@@ -56,9 +56,8 @@ d = filter(lambda x: x % 2 == 0, a)
 print("d = ", list(d))
 
 # list comprehensions
-e = [x for x in a if x %2 == 0]
+e = [x for x in a if x % 2 == 0]
 print("e = ", list(e))
-
 
 
 print("_____________________________________________\n\n")
