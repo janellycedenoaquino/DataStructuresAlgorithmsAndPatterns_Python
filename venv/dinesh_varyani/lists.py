@@ -105,3 +105,43 @@ def secondMaxVal(list_val):
 print(secondMaxVal(listEx))
 print(secondMaxVal([1, 6, 4, 15, 77, 25]))
 
+"""
+given a list of ints write a function to move all 0s to end 
+while maintaining the relative order of the non zero elements
+
+ex: [0, 1, 0, 4, 12]
+return  [1, 4, 12, 0, 0
+
+approach: 
+have a left and right checking the value at each side if left is 0 switch
+and move to the center until left and right meet 
+
+"""
+
+
+def moveZerosWithOrder(list_value):
+    pointer1 = 0
+    pointer2 = 1
+
+    while pointer2 < (len(list_value)):
+        if list_value[pointer1] == 0 and list_value[pointer2] != 0:
+            # swap
+            list_value[pointer1] = list_value[pointer2]
+            list_value[pointer2] = 0
+            pointer1 += 1
+            pointer2 += 1
+
+        elif list_value[pointer1] == 0 and list_value[pointer2] == 0:
+            # move pointer2 down
+            pointer2 += 1
+
+        else:
+            # move pointers down
+            pointer1 += 1
+            pointer2 += 1
+
+    return list_value
+
+
+listEx2 = [0, 1, 0, 4, 12, 0, 0, 0]
+print(moveZerosWithOrder(listEx2))
