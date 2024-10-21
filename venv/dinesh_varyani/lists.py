@@ -145,3 +145,46 @@ def moveZerosWithOrder(list_value):
 
 listEx2 = [0, 1, 0, 4, 12, 0, 0, 0]
 print(moveZerosWithOrder(listEx2))
+
+
+def missingNum(list_value):
+
+    list_value.sort()
+    prev = list_value[0]
+
+    for x in range(0, len(list_value) + 1):
+        if x + 1 != list_value[x]:
+            prev = x+1
+            break
+
+    return prev
+
+
+listEx3 = [2, 4, 1, 8, 6, 3, 7]
+listEx3 = [2, 4, 1, 8, 6, 5, 3, 7, 9, 11]
+print(missingNum(listEx3))
+
+
+"""
+s = "racecar"
+return: truth
+
+approach two pointer
+
+"""
+def palindrome(s):
+    left = 0
+    right = len(s)-1
+
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        right -= 1
+        left += 1
+    return True
+
+
+print("palindrome: ", palindrome("racecar"))
+print("palindrome: ", palindrome("booty"))
+
+
