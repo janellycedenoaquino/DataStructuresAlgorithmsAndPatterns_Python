@@ -32,3 +32,4 @@ class MyObject:
         for key in self.obj:
             obj_items.append(tuple([key, self.obj[key]]))
         return f"obj_items({obj_items})"
+
