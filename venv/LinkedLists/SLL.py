@@ -137,13 +137,26 @@ class SLL:
                 current = current.next
         return False
 
-
     def removingDupesFromSortedLL(self):
         curr = self.root
-        prev = None
+        while curr is not None and curr.next is not None:
+            if curr.data == curr.next.data:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
 
+    def insertNodeInSLL(self, node):
+        curr = self.root.next
+        prev = self.root
         while curr is not None:
-            curr = curr.next
+            if curr.data >= node.data:
+                prev.next = node
+                node.next = curr
+                return True
+            else:
+                prev = curr
+                curr = curr.next
+
 
 class ListNode:
     data = None
@@ -164,6 +177,7 @@ class ListNode:
 
     def setNext(self, new_val):
         self.next = new_val
+
 
 newLinkedList = SLL(1)
 newLinkedList.append(1)
@@ -191,12 +205,37 @@ newLinkedList.add(92)
 # newLinkedList.removeNodeAtIndex(2)
 # sorted(newLinkedList.print_LL())
 # reversedLLValue = newLinkedList.reverse()
-print(newLinkedList.print_LL())
+# print(newLinkedList.print_LL())
 
 
 # nthNode = newLinkedList.findNthNode(3)
 # print(nthNode.data)
-newLinkedList.removeDupes()
-print(newLinkedList.print_LL())
+# newLinkedList.removeDupes()
+# print(newLinkedList.print_LL())
 
+
+newLL = SLL(0)
+newLL.add(0)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(1)
+newLL.append(2)
+newLL.append(3)
+newLL.append(5)
+newLL.append(6)
+newLL.append(7)
+print(newLL.print_LL())
+newLL.removingDupesFromSortedLL()
+
+newestNode = ListNode(1)
+
+print(newLL.print_LL())
+newLL.insertNodeInSLL(newestNode)
+print(newLL.print_LL())
 
