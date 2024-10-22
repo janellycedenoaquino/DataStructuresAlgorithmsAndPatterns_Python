@@ -190,6 +190,26 @@ class SLL:
 
         return loop
 
+    def startOfLoopSll(self):
+        slow = self.root
+        fast = self.root
+
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if fast is slow:
+                print("before it was: ", slow.data)
+                return self.getStartingNode(slow).data
+
+        return False
+
+    def getStartingNode(self, slow):
+        temp = self.root
+        while slow != temp:
+            temp = temp.next
+            slow = slow.next
+        return temp
+
 
 class ListNode:
     data = None
@@ -217,12 +237,12 @@ newLL.append(1)
 newLL.append(3)
 newestNode = ListNode(7)
 firstNode = ListNode(2)
-newLL.insertAt(0, firstNode)
+newLL.insertAt(2, firstNode)
 newLL.append(8)
 newLL.append(9)
 newLL.append(4)
 
-newLL.insertAt(7, newestNode)
+newLL.insertAt(3, newestNode)
 newestNode.next = firstNode
 
 
@@ -230,5 +250,6 @@ newestNode.next = firstNode
 # print(newLL.loop())
 # print(newLL.print_LL())
 print(newLL.print_loop())  # [2, 0, 1, 3, 8, 9, 4, 7]
+print(newLL.startOfLoopSll())
 # print(newLL.print_LL())
 
