@@ -30,14 +30,22 @@ class SLL:
         currentNode = self.root
         prev = None
 
+        if position == 0:
+            new_node.next = self.root
+            self.root = new_node
+            return True
         while currentNode is not None:
             if position == 0:
                 prev.next = new_node
                 new_node.next = currentNode
-                self.size +=1
+                self.size += 1
+                return True
             prev = currentNode
             currentNode = currentNode.next
             position -= 1
+        if prev is not None:
+            prev.next = new_node
+        return False
 
     def append(self, data):
         newNode = ListNode(data)
@@ -157,6 +165,31 @@ class SLL:
                 prev = curr
                 curr = curr.next
 
+    def loop(self):
+        curr = self.root
+        prev = self.root
+
+        while curr is not None:
+            prev = prev.next
+            curr = curr.next.next
+            if curr is prev:
+                return True
+        return False
+
+    def print_loop(self):
+        loop = []
+        slow = self.root
+        fast = self.root
+
+        while fast is not None and fast.next is not None:
+            loop.append(slow.data)
+            slow = slow.next
+            fast = fast.next.next
+            if slow is fast:
+                return loop
+
+        return loop
+
 
 class ListNode:
     data = None
@@ -179,63 +212,23 @@ class ListNode:
         self.next = new_val
 
 
-newLinkedList = SLL(1)
-newLinkedList.append(1)
-newLinkedList.append(24)
-newLinkedList.append(5)
-newLinkedList.append(7)
-newLinkedList.append(24)
-newLinkedList.append(53)
-newLinkedList.append(53)
-newLinkedList.append(45)
-newLinkedList.append(77)
-newLinkedList.add(0)
-newLinkedList.add(92)
-newLinkedList.add(92)
-newLinkedList.add(92)
-
-# newNode = ListNode(33)
-# newLinkedList.insertAt(2, newNode)
-#
-#
-# print(newLinkedList.size)
-# newLinkedList.remove(77)
-# print("removed 92: ", newLinkedList.remove(92))
-# print(newLinkedList.print_LL())
-# newLinkedList.removeNodeAtIndex(2)
-# sorted(newLinkedList.print_LL())
-# reversedLLValue = newLinkedList.reverse()
-# print(newLinkedList.print_LL())
-
-
-# nthNode = newLinkedList.findNthNode(3)
-# print(nthNode.data)
-# newLinkedList.removeDupes()
-# print(newLinkedList.print_LL())
-
-
 newLL = SLL(0)
-newLL.add(0)
 newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(1)
-newLL.append(2)
 newLL.append(3)
-newLL.append(5)
-newLL.append(6)
-newLL.append(7)
-print(newLL.print_LL())
-newLL.removingDupesFromSortedLL()
+newestNode = ListNode(7)
+firstNode = ListNode(2)
+newLL.insertAt(0, firstNode)
+newLL.append(8)
+newLL.append(9)
+newLL.append(4)
 
-newestNode = ListNode(1)
+newLL.insertAt(7, newestNode)
+newestNode.next = firstNode
 
-print(newLL.print_LL())
-newLL.insertNodeInSLL(newestNode)
-print(newLL.print_LL())
+
+
+# print(newLL.loop())
+# print(newLL.print_LL())
+print(newLL.print_loop())  # [2, 0, 1, 3, 8, 9, 4, 7]
+# print(newLL.print_LL())
 
