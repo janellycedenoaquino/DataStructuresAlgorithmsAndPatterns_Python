@@ -2,8 +2,8 @@
 # youtube link: https://www.youtube.com/watch?v=2ZLl8GAk1X4
 
 
-
-""" remove even elements from list
+"""
+remove even elements from list
 
 ex: [3, 2, 4, 7, 10, 6, 5]
 return: [3, 7, 5]
