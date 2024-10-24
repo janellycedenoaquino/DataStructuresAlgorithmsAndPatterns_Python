@@ -20,81 +20,69 @@ ex:  stk = deque()
 """
 
 
-# class Stack:
-#     top = None
-#     next = None
-#     length = 0
-#
-#     def __init__(self, node, next = None):
-#         self.top = node
-#         self.next = next
-#         self.length += 1
-#
-#     def getLength(self):
-#         return self.length
-#
-#     def isEmpty(self):
-#         return self.length == 0
-#
-#     def pop(self):
-#         popVal = self.top.data
-#         self.top = self.top.next
-#         self.length -= 1
-#         return popVal
-#
-#     def push(self, new_val):
-#         temp = new_val
-#         temp.next = self.top
-#         self.top = temp
-#         self.length += 1
-#
-#     def peek(self):
-#         if self.isEmpty():
-#             return None
-#         return self.top.data
-#
-#     def print(self):
-#         stack = []
-#         topVal = self.top
-#
-#         while topVal is not None:
-#             stack.append(topVal.data)
-#             topVal = topVal.next
-#
-#         return stack
-#
-#
-# class ListNode:
-#     data = None
-#     next = None
-#
-#     def __init__(self, data, next_val = None):
-#         self.data = data
-#         self.next = next_val
-#
-#     def getData(self):
-#         return self.data
-#
-#     def setData(self, new_val):
-#         self.data = new_val
-#
-#     def getNext(self):
-#         return self.next
-#
-#     def setNext(self, new_val):
-#         self.next = new_val
-#
+class Stack:
+    top = None
+    next = None
+    length = 0
 
-# firstNode = ListNode(7)
-# myStack = Stack(firstNode)
-# myStack.push(ListNode(2))
-# myStack.push(ListNode(5))
-# myStack.push(ListNode(7))
-# myStack.push(ListNode(9))
-# myStack.peek()
-# print(myStack.peek())
-# print(myStack.print())
+    def __init__(self, node, next = None):
+        self.top = node
+        self.next = next
+        self.length += 1
 
+    def getLength(self):
+        return self.length
+
+    def isEmpty(self):
+        return self.length == 0
+
+    def pop(self):
+        popVal = self.top.data
+        self.top = self.top.next
+        self.length -= 1
+        return popVal
+
+    def push(self, new_val):
+        temp = new_val
+        temp.next = self.top
+        self.top = temp
+        self.length += 1
+
+    def peek(self):
+        if self.isEmpty():
+            return None
+        return self.top.data
+
+    def print(self):
+        stack = []
+        topVal = self.top
+
+        while topVal is not None:
+            stack.append(topVal.data)
+            topVal = topVal.next
+
+        return stack
+
+
+class ListNode:
+    data = None
+    next = None
+
+    def __init__(self, data, next_val = None):
+        self.data = data
+        self.next = next_val
+
+    def getData(self):
+        return self.data
+
+    def setData(self, new_val):
+        self.data = new_val
+
+    def getNext(self):
+        return self.next
+
+    def setNext(self, new_val):
+        self.next = new_val
 
 
 
@@ -113,32 +101,29 @@ approach
     once the pointers are not the same val calulate and restart count
     
 """
-# def run_length_encoding(string_val):
-#     # if null
-#     answer = []
-#     counter = 1
-#     pointer1 = 0
-#     pointer2 = 1
-#
-#     while pointer1 is not None:
-#         if string_val[pointer1] == string_val[pointer2]:
-#             counter += 1
-#             pointer2 += 1
-#             if pointer2 >= len(string_val):
-#                 answer.append(str(counter) + string_val[pointer1])
-#                 return answer
-#         else:
-#             answer.append(str(counter) + string_val[pointer1])
-#             pointer1 = pointer2
-#             pointer2 += 1
-#             counter = 1
-#             if pointer2 >= len(string_val):
-#                 answer.append(str(1) + string_val[pointer1])
-#                 return answer
-#
-#
-# a = run_length_encoding("aaaabbccc")
-# print(a)
+
+
+def run_length_encoding(string_val):
+    answer = []
+    counter = 1
+    pointer1 = 0
+    pointer2 = 1
+
+    while pointer1 is not None:
+        if string_val[pointer1] == string_val[pointer2]:
+            counter += 1
+            pointer2 += 1
+            if pointer2 >= len(string_val):
+                answer.append(str(counter) + string_val[pointer1])
+                return answer
+        else:
+            answer.append(str(counter) + string_val[pointer1])
+            pointer1 = pointer2
+            pointer2 += 1
+            counter = 1
+            if pointer2 >= len(string_val):
+                answer.append(str(1) + string_val[pointer1])
+                return answer
 
 
 def reverseSTR(string):
@@ -149,10 +134,6 @@ def reverseSTR(string):
         charArr += (newStack.pop())
 
     return charArr
-
-
-# print(reverseSTR("hello"))
-
 
 
 """
@@ -191,14 +172,5 @@ def greatest_element_2points(arr):
             right += 1
 
     return finalArr
-
-
-
-array = [4, 7, 3, 4, 8, 1]
-answer = [7, 8, 4, 8, -1, -1]
-print("array:          ", array)
-print("program answer: ", greatest_element_2points([4, 7, 3, 4, 8, 1]))
-print("actual answer:  ", answer)
-
 
 
