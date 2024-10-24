@@ -174,3 +174,83 @@ def greatest_element_2points(arr):
     return finalArr
 
 
+"""
+Given a string s, containing just the characters '(', ')', '[', ']', '{', '}'
+determine if the input string is valid. An input string is valid if:
+- open brackets must be closed by the same type of bracket
+- open brackets must be closed in correct order.
+
+ex:     
+    input: str = "{()}" output: true
+    input: str = "{]"   output: false
+    input: str = "{()"  output: false
+    
+approach: 
+    "{()}"
+     |  |
+     
+     "{()[()]}"
+       |   |
+     
+"""
+
+
+# def isValid(string):
+#     stack = deque()
+#     iteration = 0
+#     print("string: ", string)
+#     for c in string:
+#         iteration += 1
+#         print("\niteration: ", iteration, " start:")
+#         if c == '(' or c == '[' or c == '{':
+#             stack.append(c)
+#             print("pushed into the stack: ", c)
+#             print("current stack: ", stack)
+#         else:
+#             if not stack:
+#                 return False
+#             else:
+#                 top = stack[-1]
+#                 print("top: ", top)
+#                 if c == ')' and top == '(' \
+#                    or c == ']' and top == '[' \
+#                    or c == '}' and top == '{':
+#                     pop = stack.pop()
+#                     print("c: ", c)
+#                     print("popped from stack: ", pop)
+#                     print("current stack: ", stack)
+#                 else:
+#                     return False
+#         print("iteration: ", iteration, " end\n\n")
+#
+#     return not stack
+
+
+def isValid(string):
+    stack = deque()
+
+    for curr_char in string:
+        if curr_char == '(' or curr_char == '[' or curr_char == "{":
+            stack.append(curr_char)
+        else:
+            if not stack:
+                return False
+            else:
+                topOfStack = stack[-1]
+                if curr_char == ')' and topOfStack == '(' \
+                    or curr_char == ']' and topOfStack == '[' \
+                    or curr_char == '}' and topOfStack == '{':
+                    stack.pop()
+                else:
+                    return False
+    return not stack
+
+
+ex1 = "{()}"
+ex2 = "{}(){[{()]}"
+ex3 = "{()"
+ex4 = "{}(){[{()}]}"
+print(isValid(ex1))
+print(isValid(ex2))
+print(isValid(ex3))
+print(isValid(ex4))
