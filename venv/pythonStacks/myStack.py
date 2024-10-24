@@ -1,0 +1,200 @@
+from collections import deque
+
+"""
+stack is a linear data structure
+LIFO data structure
+
+
+STACK OF PANCAKES -- last one to go on top is the first one you must pick up
+
+stacks is how your program runs for singly threaded programs
+
+Python:
+        list
+        collection.deque
+        queue.LifoQueue
+
+ex:  stk = deque()
+     stk.append(5)
+     stk.pop()  # returns 89
+"""
+
+
+# class Stack:
+#     top = None
+#     next = None
+#     length = 0
+#
+#     def __init__(self, node, next = None):
+#         self.top = node
+#         self.next = next
+#         self.length += 1
+#
+#     def getLength(self):
+#         return self.length
+#
+#     def isEmpty(self):
+#         return self.length == 0
+#
+#     def pop(self):
+#         popVal = self.top.data
+#         self.top = self.top.next
+#         self.length -= 1
+#         return popVal
+#
+#     def push(self, new_val):
+#         temp = new_val
+#         temp.next = self.top
+#         self.top = temp
+#         self.length += 1
+#
+#     def peek(self):
+#         if self.isEmpty():
+#             return None
+#         return self.top.data
+#
+#     def print(self):
+#         stack = []
+#         topVal = self.top
+#
+#         while topVal is not None:
+#             stack.append(topVal.data)
+#             topVal = topVal.next
+#
+#         return stack
+#
+#
+# class ListNode:
+#     data = None
+#     next = None
+#
+#     def __init__(self, data, next_val = None):
+#         self.data = data
+#         self.next = next_val
+#
+#     def getData(self):
+#         return self.data
+#
+#     def setData(self, new_val):
+#         self.data = new_val
+#
+#     def getNext(self):
+#         return self.next
+#
+#     def setNext(self, new_val):
+#         self.next = new_val
+#
+
+# firstNode = ListNode(7)
+# myStack = Stack(firstNode)
+# myStack.push(ListNode(2))
+# myStack.push(ListNode(5))
+# myStack.push(ListNode(7))
+# myStack.push(ListNode(9))
+# myStack.peek()
+# print(myStack.peek())
+# print(myStack.print())
+
+
+
+
+"""
+Runlength encoding
+ex: "aaaabbccc"
+answer: 4a2b3c
+
+
+ex: "aaaabbccc1a"
+answer: 4a2b3c1a
+
+
+approach 
+    create a counter and two pointers 
+    once the pointers are not the same val calulate and restart count
+    
+"""
+# def run_length_encoding(string_val):
+#     # if null
+#     answer = []
+#     counter = 1
+#     pointer1 = 0
+#     pointer2 = 1
+#
+#     while pointer1 is not None:
+#         if string_val[pointer1] == string_val[pointer2]:
+#             counter += 1
+#             pointer2 += 1
+#             if pointer2 >= len(string_val):
+#                 answer.append(str(counter) + string_val[pointer1])
+#                 return answer
+#         else:
+#             answer.append(str(counter) + string_val[pointer1])
+#             pointer1 = pointer2
+#             pointer2 += 1
+#             counter = 1
+#             if pointer2 >= len(string_val):
+#                 answer.append(str(1) + string_val[pointer1])
+#                 return answer
+#
+#
+# a = run_length_encoding("aaaabbccc")
+# print(a)
+
+
+def reverseSTR(string):
+    newStack = deque(string.strip())
+    charArr = ""
+
+    while newStack:
+        charArr += (newStack.pop())
+
+    return charArr
+
+
+# print(reverseSTR("hello"))
+
+
+
+"""
+Given an array of ints. for each element in the array, find its next
+greater element in that array. the next greater element is the first element
+towards right, which is greater than the current element.
+
+example --
+
+input:  [4, 7, 3, 4, 8, 1]
+Output: [7, 8, 4, 8, -1, -1]
+
+
+two pointers is the obvious 
+"""
+
+def greatest_element_2points(arr):
+    current = 0
+    right = 1
+    finalArr = []
+
+    # while current is not None:
+    #     # print(right)
+    #     if right >= len(arr) - 1:
+    #         current += 1
+    #         right = current + 1
+    #         finalArr.append(-1)
+    #         print(finalArr)
+    #     elif arr[current] < arr[right]:
+    #         finalArr.append(arr[right])
+    #         current += 1
+    #         right = current + 1
+    #         if current >= len(arr) - 1:
+    #             finalArr.append(-1)
+    #             return
+    #     else:
+    #         right += 1
+
+    return finalArr
+
+
+print(greatest_element_2points([4, 7, 3, 4, 8, 1]))
+
+
+
