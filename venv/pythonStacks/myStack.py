@@ -254,3 +254,49 @@ print(isValid(ex1))
 print(isValid(ex2))
 print(isValid(ex3))
 print(isValid(ex4))
+
+
+def calPoints( operations):
+    stack = deque()
+    total = 0
+
+    for i in operations:
+        if i == 'C':
+            stack.pop()
+        elif i == 'D':
+            prevScore = int(stack[-1])
+            stack.append(prevScore*2)
+        elif i == '+':
+            prev = int(stack[-1])
+            sec_prev = int(stack[-2])
+            stack.append(prev + sec_prev)
+        else:
+            stack.append(int(i))
+
+    # for i in range(len(stack)):
+    #     total += stack.pop()
+
+    return sum(stack)
+
+
+print(calPoints(["5", "2", "C", "D", "+"]))
+
+
+def makeGood(s):
+    stack = deque()
+
+    for letter in s:
+        if stack and abs(ord(letter) - ord(stack[-1])) == 32:
+            print("calculation made :", letter, " equals: ", ord(letter) )
+            print("plus inside stack value:", stack[-1], " equals: ", ord(stack[-1]))
+            print("total: the absolute value of ")
+            val = stack.pop()
+            print("will pop stack: ", val)
+        else:
+            print("pushed '" + letter + "' to stack")
+            stack.append(letter)
+
+    return "".join(stack)
+
+
+print(makeGood("Pp"))
