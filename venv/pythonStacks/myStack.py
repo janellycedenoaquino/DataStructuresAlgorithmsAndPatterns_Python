@@ -169,32 +169,36 @@ Output: [7, 8, 4, 8, -1, -1]
 two pointers is the obvious 
 """
 
+
 def greatest_element_2points(arr):
     current = 0
     right = 1
     finalArr = []
 
-    # while current is not None:
-    #     # print(right)
-    #     if right >= len(arr) - 1:
-    #         current += 1
-    #         right = current + 1
-    #         finalArr.append(-1)
-    #         print(finalArr)
-    #     elif arr[current] < arr[right]:
-    #         finalArr.append(arr[right])
-    #         current += 1
-    #         right = current + 1
-    #         if current >= len(arr) - 1:
-    #             finalArr.append(-1)
-    #             return
-    #     else:
-    #         right += 1
+    while current < len(arr):
+        if right >= (len(arr) - 1):
+            current += 1
+            right = current + 1
+            finalArr.append(-1)
+        elif arr[current] < arr[right]:
+            finalArr.append(arr[right])
+            current += 1
+            right = current + 1
+            if current >= len(arr) - 1:
+                finalArr.append(-1)
+                return
+        else:
+            right += 1
 
     return finalArr
 
 
-print(greatest_element_2points([4, 7, 3, 4, 8, 1]))
+
+array = [4, 7, 3, 4, 8, 1]
+answer = [7, 8, 4, 8, -1, -1]
+print("array:          ", array)
+print("program answer: ", greatest_element_2points([4, 7, 3, 4, 8, 1]))
+print("actual answer:  ", answer)
 
 
 
