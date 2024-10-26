@@ -9,6 +9,8 @@ Hence, it is called as First In First Out (FIFO) list.
 
 """
 
+import queue
+
 
 class Queue:
     front = None
@@ -95,8 +97,8 @@ def list_of_binary(number):
     return list_of_numbers
 
 
-queueVal = list_of_binary(10)
-print(queueVal.print())
+# queueVal = list_of_binary(10)
+# print(queueVal.print())
 # newQueue = Queue(7)
 # newQueue.enqueue(8)
 # newQueue.enqueue(3)
@@ -109,4 +111,38 @@ print(queueVal.print())
 # print("first: ", newQueue.first().data)
 # print("last: ", newQueue.last().data)
 # print(newQueue.print())
+
+
+queue1 = queue.Queue()  # when using the extra.Queue() you must use get
+queue1.put(1)  # put vs append
+queue1.put(7)
+queue1.put(9)
+# queue1.get()
+# print(queue1.qsize())
+# queue1.join()
+print(queue1.get())  # when using the regular queue you must use popleft()
+# print(queue1.full())
+# print(queue1.)
+print(list(queue1.queue))
+
+
+def evalRPN(tokens):
+    stack = []
+    for x in tokens:
+        if not stack:
+            stack.append(int(x))
+        elif x not in '+-/*':
+            stack.append(int(x))
+        else:
+            l = len(stack) - 2
+            if x == '+':
+                stack[l] = stack[l] + stack.pop()
+            elif x == '-':
+                stack[l] = stack[l] - stack.pop()
+            elif x == '*':
+                stack[l] = stack[l] * stack.pop()
+            else:
+                stack[l] = float(stack[l]) / float(stack.pop())
+                stack[l] = int(stack[l])
+    return stack[0]
 
