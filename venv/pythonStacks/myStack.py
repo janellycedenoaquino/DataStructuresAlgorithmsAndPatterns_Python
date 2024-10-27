@@ -21,69 +21,68 @@ ex:  stk = deque()
 
 
 class Stack:
-    top = None
-    next = None
-    length = 0
+  top = None
+  next = None
+  length = 0
 
-    def __init__(self, node, next = None):
-        self.top = node
-        self.next = next
-        self.length += 1
+  def __init__(self, node, next=None):
+    self.top = node
+    self.next = next
+    self.length += 1
 
-    def getLength(self):
-        return self.length
+  def getLength(self):
+    return self.length
 
-    def isEmpty(self):
-        return self.length == 0
+  def isEmpty(self):
+    return self.length == 0
 
-    def pop(self):
-        popVal = self.top.data
-        self.top = self.top.next
-        self.length -= 1
-        return popVal
+  def pop(self):
+    popVal = self.top.data
+    self.top = self.top.next
+    self.length -= 1
+    return popVal
 
-    def push(self, new_val):
-        temp = new_val
-        temp.next = self.top
-        self.top = temp
-        self.length += 1
+  def push(self, new_val):
+    temp = new_val
+    temp.next = self.top
+    self.top = temp
+    self.length += 1
 
-    def peek(self):
-        if self.isEmpty():
-            return None
-        return self.top.data
+  def peek(self):
+    if self.isEmpty():
+      return None
+    return self.top.data
 
-    def print(self):
-        stack = []
-        topVal = self.top
+  def print(self):
+    stack = []
+    topVal = self.top
 
-        while topVal is not None:
-            stack.append(topVal.data)
-            topVal = topVal.next
+    while topVal is not None:
+      stack.append(topVal.data)
+      topVal = topVal.next
 
-        return stack
+    return stack
 
 
 class ListNode:
-    data = None
-    next = None
+  data = None
+  next = None
 
-    def __init__(self, data, next_val = None):
-        self.data = data
-        self.next = next_val
+  def __init__(self, data, next_val=None):
+    self.data = data
+    self.next = next_val
 
-    def getData(self):
-        return self.data
+  def getData(self):
+    return self.data
 
-    def setData(self, new_val):
-        self.data = new_val
+  def setData(self, new_val):
+    self.data = new_val
 
-    def getNext(self):
-        return self.next
+  def getNext(self):
+    return self.next
 
-    def setNext(self, new_val):
-        self.next = new_val
-
+  def setNext(self, new_val):
+    self.next = new_val
 
 
 """
@@ -104,36 +103,36 @@ approach
 
 
 def run_length_encoding(string_val):
-    answer = []
-    counter = 1
-    pointer1 = 0
-    pointer2 = 1
+  answer = []
+  counter = 1
+  pointer1 = 0
+  pointer2 = 1
 
-    while pointer1 is not None:
-        if string_val[pointer1] == string_val[pointer2]:
-            counter += 1
-            pointer2 += 1
-            if pointer2 >= len(string_val):
-                answer.append(str(counter) + string_val[pointer1])
-                return answer
-        else:
-            answer.append(str(counter) + string_val[pointer1])
-            pointer1 = pointer2
-            pointer2 += 1
-            counter = 1
-            if pointer2 >= len(string_val):
-                answer.append(str(1) + string_val[pointer1])
-                return answer
+  while pointer1 is not None:
+    if string_val[pointer1] == string_val[pointer2]:
+      counter += 1
+      pointer2 += 1
+      if pointer2 >= len(string_val):
+        answer.append(str(counter) + string_val[pointer1])
+        return answer
+    else:
+      answer.append(str(counter) + string_val[pointer1])
+      pointer1 = pointer2
+      pointer2 += 1
+      counter = 1
+      if pointer2 >= len(string_val):
+        answer.append(str(1) + string_val[pointer1])
+        return answer
 
 
 def reverseSTR(string):
-    newStack = deque(string.strip())
-    charArr = ""
+  newStack = deque(string.strip())
+  charArr = ""
 
-    while newStack:
-        charArr += (newStack.pop())
+  while newStack:
+    charArr += (newStack.pop())
 
-    return charArr
+  return charArr
 
 
 """
@@ -152,26 +151,26 @@ two pointers is the obvious
 
 
 def greatest_element_2points(arr):
-    current = 0
-    right = 1
-    finalArr = []
+  current = 0
+  right = 1
+  finalArr = []
 
-    while current < len(arr):
-        if right >= (len(arr) - 1):
-            current += 1
-            right = current + 1
-            finalArr.append(-1)
-        elif arr[current] < arr[right]:
-            finalArr.append(arr[right])
-            current += 1
-            right = current + 1
-            if current >= len(arr) - 1:
-                finalArr.append(-1)
-                return
-        else:
-            right += 1
+  while current < len(arr):
+    if right >= (len(arr) - 1):
+      current += 1
+      right = current + 1
+      finalArr.append(-1)
+    elif arr[current] < arr[right]:
+      finalArr.append(arr[right])
+      current += 1
+      right = current + 1
+      if current >= len(arr) - 1:
+        finalArr.append(-1)
+        return
+    else:
+      right += 1
 
-    return finalArr
+  return finalArr
 
 
 """
@@ -227,23 +226,23 @@ approach:
 
 
 def isValid(string):
-    stack = deque()
+  stack = deque()
 
-    for curr_char in string:
-        if curr_char == '(' or curr_char == '[' or curr_char == "{":
-            stack.append(curr_char)
+  for curr_char in string:
+    if curr_char == '(' or curr_char == '[' or curr_char == "{":
+      stack.append(curr_char)
+    else:
+      if not stack:
+        return False
+      else:
+        topOfStack = stack[-1]
+        if curr_char == ')' and topOfStack == '(' \
+            or curr_char == ']' and topOfStack == '[' \
+            or curr_char == '}' and topOfStack == '{':
+          stack.pop()
         else:
-            if not stack:
-                return False
-            else:
-                topOfStack = stack[-1]
-                if curr_char == ')' and topOfStack == '(' \
-                    or curr_char == ']' and topOfStack == '[' \
-                    or curr_char == '}' and topOfStack == '{':
-                    stack.pop()
-                else:
-                    return False
-    return not stack
+          return False
+  return not stack
 
 
 ex1 = "{()}"
@@ -256,84 +255,99 @@ print(isValid(ex3))
 print(isValid(ex4))
 
 
-def calPoints( operations):
-    stack = deque()
-    total = 0
+def calPoints(operations):
+  stack = deque()
+  total = 0
 
-    for i in operations:
-        if i == 'C':
-            stack.pop()
-        elif i == 'D':
-            prevScore = int(stack[-1])
-            stack.append(prevScore*2)
-        elif i == '+':
-            prev = int(stack[-1])
-            sec_prev = int(stack[-2])
-            stack.append(prev + sec_prev)
-        else:
-            stack.append(int(i))
+  for i in operations:
+    if i == 'C':
+      stack.pop()
+    elif i == 'D':
+      prevScore = int(stack[-1])
+      stack.append(prevScore * 2)
+    elif i == '+':
+      prev = int(stack[-1])
+      sec_prev = int(stack[-2])
+      stack.append(prev + sec_prev)
+    else:
+      stack.append(int(i))
 
-    # for i in range(len(stack)):
-    #     total += stack.pop()
+  # for i in range(len(stack)):
+  #     total += stack.pop()
 
-    return sum(stack)
+  return sum(stack)
 
 
 print(calPoints(["5", "2", "C", "D", "+"]))
 
 
 def makeGood(s):
-    stack = deque()
+  stack = deque()
 
-    for letter in s:
-        if stack and abs(ord(letter) - ord(stack[-1])) == 32:
-            print("calculation made :", letter, " equals: ", ord(letter) )
-            print("plus inside stack value:", stack[-1], " equals: ", ord(stack[-1]))
-            print("total: the absolute value of ")
-            val = stack.pop()
-            print("will pop stack: ", val)
-        else:
-            print("pushed '" + letter + "' to stack")
-            stack.append(letter)
+  for letter in s:
+    if stack and abs(ord(letter) - ord(stack[-1])) == 32:
+      print("calculation made :", letter, " equals: ", ord(letter))
+      print("plus inside stack value:", stack[-1], " equals: ", ord(stack[-1]))
+      print("total: the absolute value of ")
+      val = stack.pop()
+      print("will pop stack: ", val)
+    else:
+      print("pushed '" + letter + "' to stack")
+      stack.append(letter)
 
-    return "".join(stack)
+  return "".join(stack)
 
 
 print(makeGood("Pp"))
 
 
-def dailyTemperatures(self, temperatures):
-    n = len(temperatures)
-    answer = [0] * n  # Initialize the result array with 0s
-    stack = []  # This will store indices of temperatures
+def dailyTemperatures(temperatures):
+  n = len(temperatures)
+  answer = [0] * n  # Initialize the result array with 0s
+  stack = []  # This will store indices of temperatures
 
-    for i in range(n):
-        # While stack is not empty and the current temperature is greater than the temperature
-        # at the index of the stack's top element
-        while stack and temperatures[i] > temperatures[stack[-1]]:
-            idx = stack.pop()
-            answer[idx] = i - idx  # Calculate the number of days waited
+  for i in range(n):
+    # While stack is not empty and the current temperature is greater than the temperature
+    # at the index of the stack's top element
+    while stack and temperatures[i] > temperatures[stack[-1]]:
+      idx = stack.pop()
+      answer[idx] = i - idx  # Calculate the number of days waited
 
-        stack.append(i)  # Add the current index to the stack
+    stack.append(i)  # Add the current index to the stack
 
-    return answer
+  return answer
+
+
+def dailyTemperatures2(temperatures):
+      answer = [0] * len(temperatures)
+      stack = []
+
+      for curr_day, curr_temp in enumerate(temperatures):
+            while stack and temperatures[stack[-1]] < curr_temp:
+              prev_day = stack.pop()
+              answer[prev_day] = curr_day - prev_day
+
+            stack.append(curr_day)
+
+      return answer
+
 
 def evalRPN(tokens):
-    stack = []
-    for x in tokens:
-        if not stack:
-            stack.append(int(x))
-        elif x not in '+-/*':
-            stack.append(int(x))
-        else:
-            l = len(stack) - 2
-            if x == '+':
-                stack[l] = stack[l] + stack.pop()
-            elif x == '-':
-                stack[l] = stack[l] - stack.pop()
-            elif x == '*':
-                stack[l] = stack[l] * stack.pop()
-            else:
-                stack[l] = float(stack[l]) / float(stack.pop())
-                stack[l] = int(stack[l])
-    return stack[0]
+  stack = []
+  for x in tokens:
+    if not stack:
+      stack.append(int(x))
+    elif x not in '+-/*':
+      stack.append(int(x))
+    else:
+      l = len(stack) - 2
+      if x == '+':
+        stack[l] = stack[l] + stack.pop()
+      elif x == '-':
+        stack[l] = stack[l] - stack.pop()
+      elif x == '*':
+        stack[l] = stack[l] * stack.pop()
+      else:
+        stack[l] = float(stack[l]) / float(stack.pop())
+        stack[l] = int(stack[l])
+  return stack[0]
