@@ -126,23 +126,3 @@ print(queue1.get())  # when using the regular queue you must use popleft()
 print(list(queue1.queue))
 
 
-def evalRPN(tokens):
-    stack = []
-    for x in tokens:
-        if not stack:
-            stack.append(int(x))
-        elif x not in '+-/*':
-            stack.append(int(x))
-        else:
-            l = len(stack) - 2
-            if x == '+':
-                stack[l] = stack[l] + stack.pop()
-            elif x == '-':
-                stack[l] = stack[l] - stack.pop()
-            elif x == '*':
-                stack[l] = stack[l] * stack.pop()
-            else:
-                stack[l] = float(stack[l]) / float(stack.pop())
-                stack[l] = int(stack[l])
-    return stack[0]
-

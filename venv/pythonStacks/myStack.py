@@ -300,3 +300,40 @@ def makeGood(s):
 
 
 print(makeGood("Pp"))
+
+
+def dailyTemperatures(self, temperatures):
+    n = len(temperatures)
+    answer = [0] * n  # Initialize the result array with 0s
+    stack = []  # This will store indices of temperatures
+
+    for i in range(n):
+        # While stack is not empty and the current temperature is greater than the temperature
+        # at the index of the stack's top element
+        while stack and temperatures[i] > temperatures[stack[-1]]:
+            idx = stack.pop()
+            answer[idx] = i - idx  # Calculate the number of days waited
+
+        stack.append(i)  # Add the current index to the stack
+
+    return answer
+
+def evalRPN(tokens):
+    stack = []
+    for x in tokens:
+        if not stack:
+            stack.append(int(x))
+        elif x not in '+-/*':
+            stack.append(int(x))
+        else:
+            l = len(stack) - 2
+            if x == '+':
+                stack[l] = stack[l] + stack.pop()
+            elif x == '-':
+                stack[l] = stack[l] - stack.pop()
+            elif x == '*':
+                stack[l] = stack[l] * stack.pop()
+            else:
+                stack[l] = float(stack[l]) / float(stack.pop())
+                stack[l] = int(stack[l])
+    return stack[0]
