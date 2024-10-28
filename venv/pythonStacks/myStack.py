@@ -333,21 +333,66 @@ def dailyTemperatures2(temperatures):
 
 
 def evalRPN(tokens):
-  stack = []
-  for x in tokens:
-    if not stack:
-      stack.append(int(x))
-    elif x not in '+-/*':
-      stack.append(int(x))
-    else:
-      l = len(stack) - 2
-      if x == '+':
-        stack[l] = stack[l] + stack.pop()
-      elif x == '-':
-        stack[l] = stack[l] - stack.pop()
-      elif x == '*':
-        stack[l] = stack[l] * stack.pop()
-      else:
-        stack[l] = float(stack[l]) / float(stack.pop())
-        stack[l] = int(stack[l])
-  return stack[0]
+      stack = []
+      for x in tokens:
+        if not stack:
+          stack.append(int(x))
+        elif x not in '+-/*':
+          stack.append(int(x))
+        else:
+          l = len(stack) - 2
+          if x == '+':
+            stack[l] = stack[l] + stack.pop()
+          elif x == '-':
+            stack[l] = stack[l] - stack.pop()
+          elif x == '*':
+            stack[l] = stack[l] * stack.pop()
+          else:
+            stack[l] = float(stack[l]) / float(stack.pop())
+            stack[l] = int(stack[l])
+      return stack[0]
+
+class MinStack(object):
+  def __init__(self):
+    self.stack = []
+    self.min_stack = []
+  def push(self, val):
+    self.stack.append(val)
+    val = min(val, self.min_stack[-1] if self.min_stack else val)
+    self.min_stack.append(val)
+
+  def pop(self):
+    pop = self.stack.pop()
+    self.min_stack.pop()
+
+    return pop
+  def top(self):
+    return self.stack[-1]
+  def getMin(self):
+    return self.min_stack[-1]
+
+  def print(self):
+    arr = []
+    for x in self.stack:
+      arr.append(x)
+
+    return arr
+
+
+
+minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+print(minStack.print())
+print(minStack.getMin())
+print(minStack.pop())
+print(minStack.print())
+print(minStack.getMin())
+print(minStack.top())
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
