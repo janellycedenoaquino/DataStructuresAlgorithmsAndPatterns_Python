@@ -245,14 +245,14 @@ def isValid(string):
   return not stack
 
 
-ex1 = "{()}"
-ex2 = "{}(){[{()]}"
-ex3 = "{()"
-ex4 = "{}(){[{()}]}"
-print(isValid(ex1))
-print(isValid(ex2))
-print(isValid(ex3))
-print(isValid(ex4))
+# ex1 = "{()}"
+# ex2 = "{}(){[{()]}"
+# ex3 = "{()"
+# ex4 = "{}(){[{()}]}"
+# print(isValid(ex1))
+# print(isValid(ex2))
+# print(isValid(ex3))
+# print(isValid(ex4))
 
 
 def calPoints(operations):
@@ -278,7 +278,7 @@ def calPoints(operations):
   return sum(stack)
 
 
-print(calPoints(["5", "2", "C", "D", "+"]))
+# print(calPoints(["5", "2", "C", "D", "+"]))
 
 
 def makeGood(s):
@@ -298,7 +298,7 @@ def makeGood(s):
   return "".join(stack)
 
 
-print(makeGood("Pp"))
+# print(makeGood("Pp"))
 
 
 def dailyTemperatures(temperatures):
@@ -380,19 +380,37 @@ class MinStack(object):
 
 
 
-minStack = MinStack()
-minStack.push(-2)
-minStack.push(0)
-minStack.push(-3)
-print(minStack.print())
-print(minStack.getMin())
-print(minStack.pop())
-print(minStack.print())
-print(minStack.getMin())
-print(minStack.top())
+# minStack = MinStack()
+# minStack.push(-2)
+# minStack.push(0)
+# minStack.push(-3)
+# print(minStack.print())
+# print(minStack.getMin())
+# print(minStack.pop())
+# print(minStack.print())
+# print(minStack.getMin())
+# print(minStack.top())
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
 # obj.push(val)
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
+
+def dailyTemperatures(temperatures):
+      stack = []
+      response = [0] * len(temperatures)
+
+      for idx, val in enumerate(temperatures):
+
+        while stack and val > stack[-1][0]:
+            stack_val, stack_idx = stack.pop()
+            response[stack_idx] = idx - stack_idx
+
+        stack.append([val, idx])
+      return response
+
+
+value = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
+
+print(value)
