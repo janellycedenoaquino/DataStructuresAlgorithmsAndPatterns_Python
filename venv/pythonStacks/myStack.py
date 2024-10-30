@@ -414,17 +414,16 @@ the reason we want to use a stack is because we have an unsorted list
 which has to be evaluated by checking the one further up front
 and we have to  calculate some difference between the points
 
+anything we need to look back at a previous number
 
 """
 def dailyTemperatures(temperatures):
         stack = []
-        finalArr = [] * len(temperatures)
+        finalArr = [0] * len(temperatures)
 
         for idx, temp in enumerate(temperatures):
           while stack and temp > stack[-1][1]:
             i, t = stack.pop()
-            print("t: ", t)
-            print("i: ", i)
             finalArr[i] = idx - i
 
           stack.append([idx, temp])
@@ -436,3 +435,52 @@ value = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
 
 print(value)
 
+
+"""
+evaluate reverse polish notation
+
+ex: ["2", "1", "+", "3", "*"]
+answer: 9
+why: 2+1 = 3 *3 = 9
+
+2 into stack 1 into stack 
+we found an operator do what we do this case 2+1 store value into answer
+find 3 add to stack 
+find another operator times the numbers we have in answer add it to stack
+return the value we have after loop ends
+if we have anything left in stack add it to the value we have 
+
+
+
+"""
+
+def evalRN(tokens):
+  stack = []
+
+  for i in tokens:
+    if i in '-+/*':
+      y = stack.pop()
+      x = stack.pop()
+      if i == '-':
+        ans = x - y
+      elif i == '+':
+        ans = x + y
+      elif i == '*':
+        ans = x * y
+      elif i == '/':
+        # if x == 0 or y == 0:
+        #   ans = 0
+        # else:
+          ans = int(float(x / y))
+      stack.append(ans)
+    else:
+      stack.append(int(i))
+  return stack[0]
+
+
+print(evalRN(["2","1","+","3","*"]))
+print(evalRN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))
+
+
+
+# def basicCalc()
