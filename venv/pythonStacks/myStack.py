@@ -397,20 +397,42 @@ class MinStack(object):
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 
+
+"""
+given a list of temperatures respond with a formulated list of how many days 
+to get warmer per temperature.
+
+example: 
+given these temperatures : [73, 74, 75, 71, 69, 72, 76, 73]
+return this              : [1,   1,  4,  2,  1,  1,  0,  0]
+
+because 73 the next day is 74 so it takes one day to get warmer
+for 75 it takes 4 days because the warmest after 75 is 76 which happens in 4 days
+
+
+the reason we want to use a stack is because we have an unsorted list
+which has to be evaluated by checking the one further up front
+and we have to  calculate some difference between the points
+
+
+"""
 def dailyTemperatures(temperatures):
-      stack = []
-      response = [0] * len(temperatures)
+        stack = []
+        finalArr = [] * len(temperatures)
 
-      for idx, val in enumerate(temperatures):
+        for idx, temp in enumerate(temperatures):
+          while stack and temp > stack[-1][1]:
+            i, t = stack.pop()
+            print("t: ", t)
+            print("i: ", i)
+            finalArr[i] = idx - i
 
-        while stack and val > stack[-1][0]:
-            stack_val, stack_idx = stack.pop()
-            response[stack_idx] = idx - stack_idx
-
-        stack.append([val, idx])
-      return response
+          stack.append([idx, temp])
+        return finalArr
 
 
 value = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
 
+
 print(value)
+
