@@ -433,7 +433,7 @@ def dailyTemperatures(temperatures):
 value = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
 
 
-print(value)
+# print(value)
 
 
 """
@@ -478,9 +478,125 @@ def evalRN(tokens):
   return stack[0]
 
 
-print(evalRN(["2","1","+","3","*"]))
-print(evalRN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))
+# print(evalRN(["2","1","+","3","*"]))
+# print(evalRN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))
+
+"""
+basic calculator should evaluate a mathematical expression 
+the same way polish notation evaluates mathematical expressions 
+but the way it does it it's the regular way. where you have an equation like
+ex:
+input:  "(8 + 100) + (13 - 8 - (2+1))"
+output: 110
+
+you have to account for spaces numbers and parenthesis
+ 
+ approach: use a stack add numbers to the stack
+ when you encounter a "+-*/" you know you have to do an operation with the 
+ number following it 
+ when encounter a "(" you have to evaluate what is inside of it until you 
+ encounter a ")"
+ 
+iterate through the string ex: "(8 + 100) + (13 - 8 - (2+1))"
+
+* first thing we find is a "("  we store the result we have previously calc in 
+a stack so that when we are ready to use it we can pop and use. in this first
+case it doesn't do anything because the result is 0
+
+* then we find the number 8 we take that number and since the number is a str
+we don't know if the next value is a digit we need to store this in a variable 
+until we know we have to full number.
+for example the number: "123" in string form 
+  we find 1 first we store it
+  then we find 2 and to be able to store this we need to append it or
+  do some calculation. which could look like number = number * 10 + int(i)
+  this works because in the first iteration we find 1 so number is 0 
+  so 0 * 10(tenth place) is 0 + int(i) integer found ==  1
+  then we find 2: in this iteration number is 1 from the prev calculation
+  number = number * 10 + int(i) or 1 * 10 + 2 
+  timing it by 10 adds a digit to our number without damaging the value
+  then adding the number found makes it the number we need
+  lastly we add 3 so this iteration will look like number = 12 * 10 + 3
+  12 * 10 == 120 <-- we added a digit to out prev amount. + 3 and appended the num
+  
+  another way to do it is by having number as a string and appending every number 
+  found then when we need it converting it to an int -- try this
+ 
+* then we find an space which we skip
+
+* then we find a "+" this makes us know whatever the next number is is either
+supposed to be positive or be added to what we previously have in the stack
+so we can store this sign in a variable to use later 
+we want to update our result to be  whatever value we have in number * the sign
+we have stored before changing the sign to the new one we found
+then we want to assign the new value to sign and reset our current
+we want to also reset our current number to zero after we store it in the stack
+
+* then we find another space which we will do the same as before
+then we find a number 1 we calculate it's place
 
 
+"""
+# def basicCalc(s):
+#     stack = []
+#     currNum = 0
+#     sign = 1
+#     result = 0
+#
+#     for i in s:
+#       if i.isdigit():
+#         currNum = currNum * 10 + int(i)
+#       elif i in '+-':
+#         result += (currNum*sign)
+#         currNum = 0
+#         sign = -1 if sign == '-' else 1
+#       elif i == '(':
+#         stack.append(result)
+#         stack.append(sign)
+#         result = 0
+#         sign = 1
+#       elif i == ')':
+#         result += (currNum*sign)
+#         result *= stack.pop()
+#         result += stack.pop()
+#         currNum = 0
+#
+#
+#     return result + (currNum*sign)
+#
+#
+#
+# print(basicCalc("(8 + 100) + (13 - 8 - (2+1))"))
+# print(eval("(8 + 100) + (13 - 8 - (2+1))"))
 
-# def basicCalc()
+
+"""
+remove adjacent strs 
+ex: 
+input:  "abcddeea"
+output: "abca"
+reason: there are no more alike letters next to one another
+
+ex2:
+input:  "abbaccdeedaa"
+output: ""
+reason: all alike letters are next to one another
+
+use a stack to store the last value found check next value and compare to new
+if same pop is not append keep checking and popping
+
+"""
+def rem_adj_str(s):
+    stack = []
+
+    for i in s:
+        if stack and stack[-1] == i:
+            stack.pop()
+        else:
+            stack.append(i)
+
+
+    return ''.join(stack)
+
+print(rem_adj_str("abcddeea"))
+print(rem_adj_str("abbaccdeedaa"))
