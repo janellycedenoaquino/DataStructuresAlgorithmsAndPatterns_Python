@@ -586,6 +586,8 @@ use a stack to store the last value found check next value and compare to new
 if same pop is not append keep checking and popping
 
 """
+
+
 def rem_adj_str(s):
     stack = []
 
@@ -595,8 +597,62 @@ def rem_adj_str(s):
         else:
             stack.append(i)
 
-
     return ''.join(stack)
+
 
 print(rem_adj_str("abcddeea"))
 print(rem_adj_str("abbaccdeedaa"))
+
+
+"""
+minimum remove to make valid parentheses
+
+ex: 
+input: “(((abc)(to)((q)()(”
+output: “(abc)(to)(q)()”
+
+ex2: 
+input:  “)((ab)c))(ac(op)t(())(”
+output: “((ab)c)ac(op)t(())”
+
+
+approach: iterate through the string 
+append the values found into a new string 
+when we find an opening parenthesis
+we add to stack 
+we keep going and store it and if find a closing 
+we only add it if we have a matching opening in the stack 
+
+"""
+
+
+def min_remove_parentheses(s):
+    stack = []
+    final_string = [''] * len(s)
+
+    for idx, i in enumerate(s):
+        if i == '(':
+            stack.append([idx, i])
+            final_string.append("")
+        elif i == ')':
+            if stack:
+                pop_idx, pop_i = stack.pop()
+                final_string[pop_idx] = pop_i
+                final_string[idx] = i
+        else:
+            final_string[idx] = i
+
+    return ''.join(final_string)
+
+
+# print("input:  (((abc)(to)((q)()(")
+# print("output: (abc)(to)(q)()")
+# print('answer:', min_remove_parentheses("(((abc)(to)((q)()("))
+# print("\n_______________________________\n")
+# print("input:  )((ab)c))(ac(op)t(())(")
+# print("output: ((ab)c)ac(op)t(())")
+# print('answer:', min_remove_parentheses(")((ab)c))(ac(op)t(())("))
+
+
+
+
