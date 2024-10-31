@@ -1,13 +1,13 @@
 from collections import deque
 
 """
-stack is a linear data structure
+stack_ is a linear data structure
 LIFO data structure
 
 
-STACK OF PANCAKES -- last one to go on top is the first one you must pick up
+stack_ OF PANCAKES -- last one to go on top is the first one you must pick up
 
-stacks is how your program runs for singly threaded programs
+stack_s is how your program runs for singly threaded programs
 
 Python:
         list
@@ -20,7 +20,7 @@ ex:  stk = deque()
 """
 
 
-class Stack:
+class stack_:
   top = None
   next = None
   length = 0
@@ -54,14 +54,14 @@ class Stack:
     return self.top.data
 
   def print(self):
-    stack = []
+    stack_ = []
     topVal = self.top
 
     while topVal is not None:
-      stack.append(topVal.data)
+      stack_.append(topVal.data)
       topVal = topVal.next
 
-    return stack
+    return stack_
 
 
 class ListNode:
@@ -126,11 +126,11 @@ def run_length_encoding(string_val):
 
 
 def reverseSTR(string):
-  newStack = deque(string.strip())
+  newstack_ = deque(string.strip())
   charArr = ""
 
-  while newStack:
-    charArr += (newStack.pop())
+  while newstack_:
+    charArr += (newstack_.pop())
 
   return charArr
 
@@ -195,54 +195,54 @@ approach:
 
 
 # def isValid(string):
-#     stack = deque()
+#     stack_ = deque()
 #     iteration = 0
 #     print("string: ", string)
 #     for c in string:
 #         iteration += 1
 #         print("\niteration: ", iteration, " start:")
 #         if c == '(' or c == '[' or c == '{':
-#             stack.append(c)
-#             print("pushed into the stack: ", c)
-#             print("current stack: ", stack)
+#             stack_.append(c)
+#             print("pushed into the stack_: ", c)
+#             print("current stack_: ", stack_)
 #         else:
-#             if not stack:
+#             if not stack_:
 #                 return False
 #             else:
-#                 top = stack[-1]
+#                 top = stack_[-1]
 #                 print("top: ", top)
 #                 if c == ')' and top == '(' \
 #                    or c == ']' and top == '[' \
 #                    or c == '}' and top == '{':
-#                     pop = stack.pop()
+#                     pop = stack_.pop()
 #                     print("c: ", c)
-#                     print("popped from stack: ", pop)
-#                     print("current stack: ", stack)
+#                     print("popped from stack_: ", pop)
+#                     print("current stack_: ", stack_)
 #                 else:
 #                     return False
 #         print("iteration: ", iteration, " end\n\n")
 #
-#     return not stack
+#     return not stack_
 
 
 def isValid(string):
-  stack = deque()
+  stack_ = deque()
 
   for curr_char in string:
     if curr_char == '(' or curr_char == '[' or curr_char == "{":
-      stack.append(curr_char)
+      stack_.append(curr_char)
     else:
-      if not stack:
+      if not stack_:
         return False
       else:
-        topOfStack = stack[-1]
-        if curr_char == ')' and topOfStack == '(' \
-            or curr_char == ']' and topOfStack == '[' \
-            or curr_char == '}' and topOfStack == '{':
-          stack.pop()
+        topOfstack_ = stack_[-1]
+        if curr_char == ')' and topOfstack_ == '(' \
+            or curr_char == ']' and topOfstack_ == '[' \
+            or curr_char == '}' and topOfstack_ == '{':
+          stack_.pop()
         else:
           return False
-  return not stack
+  return not stack_
 
 
 # ex1 = "{()}"
@@ -256,46 +256,46 @@ def isValid(string):
 
 
 def calPoints(operations):
-  stack = deque()
+  stack_ = deque()
   total = 0
 
   for i in operations:
     if i == 'C':
-      stack.pop()
+      stack_.pop()
     elif i == 'D':
-      prevScore = int(stack[-1])
-      stack.append(prevScore * 2)
+      prevScore = int(stack_[-1])
+      stack_.append(prevScore * 2)
     elif i == '+':
-      prev = int(stack[-1])
-      sec_prev = int(stack[-2])
-      stack.append(prev + sec_prev)
+      prev = int(stack_[-1])
+      sec_prev = int(stack_[-2])
+      stack_.append(prev + sec_prev)
     else:
-      stack.append(int(i))
+      stack_.append(int(i))
 
-  # for i in range(len(stack)):
-  #     total += stack.pop()
+  # for i in range(len(stack_)):
+  #     total += stack_.pop()
 
-  return sum(stack)
+  return sum(stack_)
 
 
 # print(calPoints(["5", "2", "C", "D", "+"]))
 
 
 def makeGood(s):
-  stack = deque()
+  stack_ = deque()
 
   for letter in s:
-    if stack and abs(ord(letter) - ord(stack[-1])) == 32:
+    if stack_ and abs(ord(letter) - ord(stack_[-1])) == 32:
       print("calculation made :", letter, " equals: ", ord(letter))
-      print("plus inside stack value:", stack[-1], " equals: ", ord(stack[-1]))
+      print("plus inside stack_ value:", stack_[-1], " equals: ", ord(stack__[-1]))
       print("total: the absolute value of ")
-      val = stack.pop()
-      print("will pop stack: ", val)
+      val = stack_.pop()
+      print("will pop stack_: ", val)
     else:
-      print("pushed '" + letter + "' to stack")
-      stack.append(letter)
+      print("pushed '" + letter + "' to stack_")
+      stack_.append(letter)
 
-  return "".join(stack)
+  return "".join(stack_)
 
 
 # print(makeGood("Pp"))
@@ -304,94 +304,94 @@ def makeGood(s):
 def dailyTemperatures(temperatures):
   n = len(temperatures)
   answer = [0] * n  # Initialize the result array with 0s
-  stack = []  # This will store indices of temperatures
+  stack_ = []  # This will store indices of temperatures
 
   for i in range(n):
-    # While stack is not empty and the current temperature is greater than the temperature
-    # at the index of the stack's top element
-    while stack and temperatures[i] > temperatures[stack[-1]]:
-      idx = stack.pop()
+    # While stack_ is not empty and the current temperature is greater than the temperature
+    # at the index of the stack_'s top element
+    while stack_ and temperatures[i] > temperatures[stack_[-1]]:
+      idx = stack_.pop()
       answer[idx] = i - idx  # Calculate the number of days waited
 
-    stack.append(i)  # Add the current index to the stack
+    stack_.append(i)  # Add the current index to the stack_
 
   return answer
 
 
 def dailyTemperatures2(temperatures):
       answer = [0] * len(temperatures)
-      stack = []
+      stack_ = []
 
       for curr_day, curr_temp in enumerate(temperatures):
-            while stack and temperatures[stack[-1]] < curr_temp:
-              prev_day = stack.pop()
+            while stack_ and temperatures[stack_[-1]] < curr_temp:
+              prev_day = stack_.pop()
               answer[prev_day] = curr_day - prev_day
 
-            stack.append(curr_day)
+            stack_.append(curr_day)
 
       return answer
 
 
 def evalRPN(tokens):
-      stack = []
+      stack_ = []
       for x in tokens:
-        if not stack:
-          stack.append(int(x))
+        if not stack_:
+          stack_.append(int(x))
         elif x not in '+-/*':
-          stack.append(int(x))
+          stack_.append(int(x))
         else:
-          l = len(stack) - 2
+          l = len(stack_) - 2
           if x == '+':
-            stack[l] = stack[l] + stack.pop()
+            stack_[l] = stack_[l] + stack_.pop()
           elif x == '-':
-            stack[l] = stack[l] - stack.pop()
+            stack_[l] = stack_[l] - stack_.pop()
           elif x == '*':
-            stack[l] = stack[l] * stack.pop()
+            stack_[l] = stack_[l] * stack_.pop()
           else:
-            stack[l] = float(stack[l]) / float(stack.pop())
-            stack[l] = int(stack[l])
-      return stack[0]
+            stack_[l] = float(stack_[l]) / float(stack_.pop())
+            stack_[l] = int(stack_[l])
+      return stack_[0]
 
-class MinStack(object):
+class Minstack_(object):
   def __init__(self):
-    self.stack = []
-    self.min_stack = []
+    self.stack_ = []
+    self.min_stack_ = []
   def push(self, val):
-    self.stack.append(val)
-    val = min(val, self.min_stack[-1] if self.min_stack else val)
-    self.min_stack.append(val)
+    self.stack_.append(val)
+    val = min(val, self.min_stack_[-1] if self.min_stack_ else val)
+    self.min_stack_.append(val)
 
   def pop(self):
-    pop = self.stack.pop()
-    self.min_stack.pop()
+    pop = self.stack_.pop()
+    self.min_stack_.pop()
 
     return pop
   def top(self):
-    return self.stack[-1]
+    return self.stack_[-1]
   def getMin(self):
-    return self.min_stack[-1]
+    return self.min_stack_[-1]
 
   def print(self):
     arr = []
-    for x in self.stack:
+    for x in self.stack_:
       arr.append(x)
 
     return arr
 
 
 
-# minStack = MinStack()
-# minStack.push(-2)
-# minStack.push(0)
-# minStack.push(-3)
-# print(minStack.print())
-# print(minStack.getMin())
-# print(minStack.pop())
-# print(minStack.print())
-# print(minStack.getMin())
-# print(minStack.top())
-# Your MinStack object will be instantiated and called as such:
-# obj = MinStack()
+# minstack_ = Minstack_()
+# minstack_.push(-2)
+# minstack_.push(0)
+# minstack_.push(-3)
+# print(minstack_.print())
+# print(minstack_.getMin())
+# print(minstack_.pop())
+# print(minstack_.print())
+# print(minstack_.getMin())
+# print(minstack_.top())
+# Your Minstack_ object will be instantiated and called as such:
+# obj = Minstack_()
 # obj.push(val)
 # obj.pop()
 # param_3 = obj.top()
@@ -410,7 +410,7 @@ because 73 the next day is 74 so it takes one day to get warmer
 for 75 it takes 4 days because the warmest after 75 is 76 which happens in 4 days
 
 
-the reason we want to use a stack is because we have an unsorted list
+the reason we want to use a stack_ is because we have an unsorted list
 which has to be evaluated by checking the one further up front
 and we have to  calculate some difference between the points
 
@@ -418,15 +418,15 @@ anything we need to look back at a previous number
 
 """
 def dailyTemperatures(temperatures):
-        stack = []
+        stack_ = []
         finalArr = [0] * len(temperatures)
 
         for idx, temp in enumerate(temperatures):
-          while stack and temp > stack[-1][1]:
-            i, t = stack.pop()
+          while stack_ and temp > stack_[-1][1]:
+            i, t = stack_.pop()
             finalArr[i] = idx - i
 
-          stack.append([idx, temp])
+          stack_.append([idx, temp])
         return finalArr
 
 
@@ -443,24 +443,24 @@ ex: ["2", "1", "+", "3", "*"]
 answer: 9
 why: 2+1 = 3 *3 = 9
 
-2 into stack 1 into stack 
+2 into stack_ 1 into stack_ 
 we found an operator do what we do this case 2+1 store value into answer
-find 3 add to stack 
-find another operator times the numbers we have in answer add it to stack
+find 3 add to stack_ 
+find another operator times the numbers we have in answer add it to stack_
 return the value we have after loop ends
-if we have anything left in stack add it to the value we have 
+if we have anything left in stack_ add it to the value we have 
 
 
 
 """
 
 def evalRN(tokens):
-  stack = []
+  stack_ = []
 
   for i in tokens:
     if i in '-+/*':
-      y = stack.pop()
-      x = stack.pop()
+      y = stack_.pop()
+      x = stack_.pop()
       if i == '-':
         ans = x - y
       elif i == '+':
@@ -472,10 +472,10 @@ def evalRN(tokens):
         #   ans = 0
         # else:
           ans = int(float(x / y))
-      stack.append(ans)
+      stack_.append(ans)
     else:
-      stack.append(int(i))
-  return stack[0]
+      stack_.append(int(i))
+  return stack_[0]
 
 
 # print(evalRN(["2","1","+","3","*"]))
@@ -491,7 +491,7 @@ output: 110
 
 you have to account for spaces numbers and parenthesis
  
- approach: use a stack add numbers to the stack
+ approach: use a stack_ add numbers to the stack_
  when you encounter a "+-*/" you know you have to do an operation with the 
  number following it 
  when encounter a "(" you have to evaluate what is inside of it until you 
@@ -500,7 +500,7 @@ you have to account for spaces numbers and parenthesis
 iterate through the string ex: "(8 + 100) + (13 - 8 - (2+1))"
 
 * first thing we find is a "("  we store the result we have previously calc in 
-a stack so that when we are ready to use it we can pop and use. in this first
+a stack_ so that when we are ready to use it we can pop and use. in this first
 case it doesn't do anything because the result is 0
 
 * then we find the number 8 we take that number and since the number is a str
@@ -525,12 +525,12 @@ for example the number: "123" in string form
 * then we find an space which we skip
 
 * then we find a "+" this makes us know whatever the next number is is either
-supposed to be positive or be added to what we previously have in the stack
+supposed to be positive or be added to what we previously have in the stack_
 so we can store this sign in a variable to use later 
 we want to update our result to be  whatever value we have in number * the sign
 we have stored before changing the sign to the new one we found
 then we want to assign the new value to sign and reset our current
-we want to also reset our current number to zero after we store it in the stack
+we want to also reset our current number to zero after we store it in the stack_
 
 * then we find another space which we will do the same as before
 then we find a number 1 we calculate it's place
@@ -538,7 +538,7 @@ then we find a number 1 we calculate it's place
 
 """
 # def basicCalc(s):
-#     stack = []
+#     stack_ = []
 #     currNum = 0
 #     sign = 1
 #     result = 0
@@ -551,14 +551,14 @@ then we find a number 1 we calculate it's place
 #         currNum = 0
 #         sign = -1 if sign == '-' else 1
 #       elif i == '(':
-#         stack.append(result)
-#         stack.append(sign)
+#         stack_.append(result)
+#         stack_.append(sign)
 #         result = 0
 #         sign = 1
 #       elif i == ')':
 #         result += (currNum*sign)
-#         result *= stack.pop()
-#         result += stack.pop()
+#         result *= stack_.pop()
+#         result += stack_.pop()
 #         currNum = 0
 #
 #
@@ -582,22 +582,22 @@ input:  "abbaccdeedaa"
 output: ""
 reason: all alike letters are next to one another
 
-use a stack to store the last value found check next value and compare to new
+use a stack_ to store the last value found check next value and compare to new
 if same pop is not append keep checking and popping
 
 """
 
 
 def rem_adj_str(s):
-    stack = []
+    stack_ = []
 
     for i in s:
-        if stack and stack[-1] == i:
-            stack.pop()
+        if stack_ and stack_[-1] == i:
+            stack_.pop()
         else:
-            stack.append(i)
+            stack_.append(i)
 
-    return ''.join(stack)
+    return ''.join(stack_)
 
 
 print(rem_adj_str("abcddeea"))
@@ -619,24 +619,24 @@ output: “((ab)c)ac(op)t(())”
 approach: iterate through the string 
 append the values found into a new string 
 when we find an opening parenthesis
-we add to stack 
+we add to stack_ 
 we keep going and store it and if find a closing 
-we only add it if we have a matching opening in the stack 
+we only add it if we have a matching opening in the stack_ 
 
 """
 
 
 def min_remove_parentheses(s):
-    stack = []
+    stack_ = []
     final_string = [''] * len(s)
 
     for idx, i in enumerate(s):
         if i == '(':
-            stack.append([idx, i])
+            stack_.append([idx, i])
             final_string.append("")
         elif i == ')':
-            if stack:
-                pop_idx, pop_i = stack.pop()
+            if stack_:
+                pop_idx, pop_i = stack_.pop()
                 final_string[pop_idx] = pop_i
                 final_string[idx] = i
         else:
@@ -654,5 +654,72 @@ def min_remove_parentheses(s):
 # print('answer:', min_remove_parentheses(")((ab)c))(ac(op)t(())("))
 
 
+def is_valid(s):
+  stack_ = []
+
+  for i in s:
+    if i in '([{':
+      stack_.append(i)
+    elif i in ')]}':
+      if stack_:
+        if stack_[-1] == '(' and i == ')':
+          stack_.pop()
+        elif stack_[-1] == '[' and i == ']':
+          stack_.pop()
+        elif stack_[-1] == '{' and i == '}':
+          stack_.pop()
+        else:
+          return False
+      else:
+        return False
 
 
+  # Replace this placeholder return statement with your code
+  return len(stack_) == 0
+
+
+
+print("input:  “(){}[]”")
+print("output: True")
+print('answer:', is_valid("(){}[]"))
+print("\n_______________________________\n")
+print("input:  {}[]{}[{}])")
+print("output: False")
+print('answer:', is_valid("{}[]{}[{}])"))
+
+
+
+x1 = ["2","1","+","3","*"]
+Output =  9
+
+x2 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+"""
+["2","1","+","3","*"]
+Output: 9
+
+
+"""
+def polishNo(arr):
+    stack = []
+
+    for x in arr:
+        if x in '-+/*':
+            val2 = stack.pop()
+            val1 = stack.pop()
+
+            if x == '-':
+                ans = (val2 - val2)
+            elif x == '*':
+                ans = (val1 * val2)
+            elif x == '/':
+                ans = int(float(val1 / val2))
+            else:
+                ans = (val1 + val2)
+            stack.append(ans)
+        else:
+            stack.append(int(x))
+
+    return stack[0]
+
+print("plishnoanswer: ",polishNo(x1))
+print("plishnoanswer: ",polishNo(x2))
