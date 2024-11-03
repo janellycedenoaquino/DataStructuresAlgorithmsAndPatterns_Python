@@ -133,15 +133,6 @@ class BinaryTree:
         right.left = right_left
         right.right = right_right
 
-
-"""
-                                    5 root
-                    (left)3                           7(right)
-        (left.left)2     4(left.right)   (right.left)6     8(right.right)
-(left.left.left)1       
-"""
-
-
 class TreeNode:
 
     def __init__(self, data, left=None, right=None):
@@ -153,13 +144,4 @@ class TreeNode:
 
 tree1 = BinaryTree()
 tree1.createBinaryTree()
-# reversalPreOrder(tree1.root)
-# print("<--reversalPreOrder____________________________reversalPostOrder-->")
-reversalPostOrder(tree1.root)
-# print("____________________________ reversalInOrder_stack-->")
-# reversalInOrder_stack(tree1.root)
-# print("____________________________ reversalInOrder-->")
-# reversalInOrder(tree1.root)
-print("____________________________ reversalPostOrder stack-->")
-# reversalPreOrder_stack(tree1.root)
-reversalPostOrder_stack(tree1.root)
+
