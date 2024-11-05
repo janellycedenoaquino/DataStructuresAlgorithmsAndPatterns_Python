@@ -107,8 +107,8 @@ def secondMaxVal(list_val):
     return sorted(list_val)[secondMax]
 
 
-print(secondMaxVal(listEx))
-print(secondMaxVal([1, 6, 4, 15, 77, 25]))
+# print(secondMaxVal(listEx))
+# print(secondMaxVal([1, 6, 4, 15, 77, 25]))
 
 """
 given a list of ints write a function to move all 0s to end 
@@ -149,7 +149,7 @@ def moveZerosWithOrder(list_value):
 
 
 listEx2 = [0, 1, 0, 4, 12, 0, 0, 0]
-print(moveZerosWithOrder(listEx2))
+# print(moveZerosWithOrder(listEx2))
 
 
 def missingNum(list_value):
@@ -167,7 +167,7 @@ def missingNum(list_value):
 
 listEx3 = [2, 4, 1, 8, 6, 3, 7]
 listEx3 = [2, 4, 1, 8, 6, 5, 3, 7, 9, 11]
-print(missingNum(listEx3))
+# print(missingNum(listEx3))
 
 
 """
@@ -189,7 +189,7 @@ def palindrome(s):
     return True
 
 
-print("palindrome: ", palindrome("racecar"))
-print("palindrome: ", palindrome("booty"))
+# print("palindrome: ", palindrome("racecar"))
+# print("palindrome: ", palindrome("booty"))
 
 
