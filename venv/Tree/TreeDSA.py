@@ -20,9 +20,52 @@ a binary tree's structure looks like this:
 null <-- left <-- data --> right--> null      <-- a TreeNode looks like this
 a binary tree is represented by a tree node
 
-basic tree node:
+Types of binary trees:
+
+complete binary tree:                       full binary tree:
+        1                                            1
+    2       3                                  2          3
+4      5  6   7                            4     5      6     7
+8                                        8  9  10 11  12 13  14 15
+complete is full at all levels          full is complete at all levels
+except the last                         including the last
+
+
+DFS --> there are three different ways: pre-order, in-order and post-order
+    Pre-order Traversal:
+    displaying the current node and traversing left
+    print all left until no more, then print right.
+
+    In-order Traversal:
+    display the left hen when there are no more left
+    display the middle + root and then all right values.
+
+    Pre-order Traversal:
+    display all left then all right then root
+
+BFS -->
+
+
+Level-Order Travesal:
+        print all levels in order so 12345678
+        we use a queue add everything to the queue. add 1
+        print it find its children: 2,3  into the queue print 2 find 2s children
+        add 4,5 to the queue. pop the queue print 3 and find 3 children
+        add to queue 3 has no children so move on to next in queue: 4
+        print 4 and check for children it has none
+        print 5 and find 5 children has none no more queue and no more elements
+        return
 
 """
+
+
+def in_order(node):
+    if not node:
+        return
+
+    in_order(node.left)
+    print(node.data)
+    in_order(node.right)
 
 
 def reversalPreOrder(root):
@@ -133,6 +176,7 @@ class BinaryTree:
         right.left = right_left
         right.right = right_right
 
+
 class TreeNode:
 
     def __init__(self, data, left=None, right=None):
@@ -142,6 +186,18 @@ class TreeNode:
         self.parent = None
 
 
+# def Level_Order(node):
+#     if not node:
+#         return
+#     queue = [node]
+#     traversal = ""
+#     # while queue:
+
+
+
 tree1 = BinaryTree()
 tree1.createBinaryTree()
+# print(Level_Order(tree1.root))
+
+
 
