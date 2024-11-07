@@ -57,8 +57,7 @@ Level-Order Travesal:
         return
 
 """
-
-
+from collections import deque
 def in_order(node):
     if not node:
         return
@@ -186,18 +185,51 @@ class TreeNode:
         self.parent = None
 
 
-# def Level_Order(node):
-#     if not node:
-#         return
-#     queue = [node]
-#     traversal = ""
-#     # while queue:
+def Level_Order(node):
+    if node is None:
+        return
 
+    queue = deque()
+    queue.append(node)
+    ans_arr = []
+
+    while queue:
+        curr_lvl = []
+        n = len(queue)
+        for i in range(n):
+            currNode = queue.popleft()
+            curr_lvl.append(currNode.data)
+
+            if currNode.left: queue.append(currNode.left)
+            if currNode.right: queue.append(currNode.right)
+
+        ans_arr.append(curr_lvl)
+
+    return ans_arr
+
+
+def lvl_ord_print(root):
+    if root is None:
+        return
+
+    queue = deque()
+    queue.append(root)
+
+    while queue:
+        currVal = queue.popleft()
+        print(currVal.data)
+        if currVal.left:
+            queue.append(currVal.left)
+        if currVal.right:
+            queue.append(currVal.right)
+    return
 
 
 tree1 = BinaryTree()
 tree1.createBinaryTree()
-# print(Level_Order(tree1.root))
+print(reversalPreOrder_stack(tree1.root))
+print(Level_Order(tree1.root))
+print(lvl_ord_print(tree1.root))
 
 
 
