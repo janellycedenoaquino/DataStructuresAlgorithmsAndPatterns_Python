@@ -225,11 +225,24 @@ def lvl_ord_print(root):
     return
 
 
+def find_max_val_in_binarytree_recursive(root):
+    if root is None:
+        return float('-inf')
+
+    result = root.data
+    left = find_max_val_in_binarytree_recursive(root.left)
+    right = find_max_val_in_binarytree_recursive(root.right)
+    result = max(result, left, right)
+    return result
+
+
 tree1 = BinaryTree()
 tree1.createBinaryTree()
-print(reversalPreOrder_stack(tree1.root))
-print(Level_Order(tree1.root))
-print(lvl_ord_print(tree1.root))
+# print(reversalPreOrder_stack(tree1.root))
+# print(Level_Order(tree1.root))
+# print(lvl_ord_print(tree1.root))
+print(find_max_val_in_binarytree_recursive(tree1.root))
+print(find_max_val_in_binarytree_recursive(BinaryTree()))
 
 
 
