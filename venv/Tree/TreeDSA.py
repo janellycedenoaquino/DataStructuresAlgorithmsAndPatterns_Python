@@ -58,6 +58,8 @@ Level-Order Travesal:
 
 """
 from collections import deque
+
+
 def in_order(node):
     if not node:
         return
@@ -236,13 +238,13 @@ def find_max_val_in_binarytree_recursive(root):
     return result
 
 
+
 tree1 = BinaryTree()
 tree1.createBinaryTree()
-# print(reversalPreOrder_stack(tree1.root))
-# print(Level_Order(tree1.root))
-# print(lvl_ord_print(tree1.root))
-print(find_max_val_in_binarytree_recursive(tree1.root))
-print(find_max_val_in_binarytree_recursive(BinaryTree()))
+# print(find_max_val_in_binarytree_recursive(tree1.root))
+# print(reversalPreOrder(tree1.root))
+
+
 
 
 
