@@ -241,8 +241,8 @@ def find_max_val_in_binarytree_recursive(root):
 
 tree1 = BinaryTree()
 tree1.createBinaryTree()
-# print(find_max_val_in_binarytree_recursive(tree1.root))
-# print(reversalPreOrder(tree1.root))
+
+
 
 
 
