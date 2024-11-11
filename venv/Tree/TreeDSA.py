@@ -303,7 +303,7 @@ def findingTargetRecursively(root, val):
 
 
 def treeSum(root):
-    if root is None: return False
+    if root is None: return 0
 
     total = 0
     stack = [root]
@@ -317,21 +317,16 @@ def treeSum(root):
     return total
 
 
-def treeSumRecursive(root, total = 0):
-    if root is None: return False
+def treeSumRecursive(root):
+    if root is None: return 0
 
-    total += root.data
-    total += treeSumRecursive(root.left, total) + treeSumRecursive(root.left, total)
-
-    return total
-
-
+    return root.data + treeSumRecursive(root.left) + treeSumRecursive(root.right)
 
 print(Level_Order(tree1.root))
 print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
 print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
 print("Recursively: ", findingTargetRecursively(tree1.root, 7))
 print("sum: ", treeSum(tree1.root))
-print("sumRecursive: ", treeSum(tree1.root))
+print("sumRecursive: ", treeSumRecursive(tree1.root))
 
 
