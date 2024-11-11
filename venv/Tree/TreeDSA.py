@@ -292,15 +292,6 @@ def findingTargetRecursively(root, val):
     if root.data is val: return True
     return findingTargetRecursively(root.left, val) or findingTargetRecursively(root.right, val)
 
-"""
-    
-                                    5
-                                3      7     <-- this is a binary tree
-                            2   4    6  8
-                        1
-                            
-"""
-
 
 def treeSum(root):
     if root is None: return 0
@@ -346,13 +337,52 @@ def findMinRecursive(root):
     return min(root.data, leftVal, rightVal)
 
 
-print(Level_Order(tree1.root))
-print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
-print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
-print("Recursively: ", findingTargetRecursively(tree1.root, 7))
-print("sum: ", treeSum(tree1.root))
-print("sumRecursive: ", treeSumRecursive(tree1.root))
-print("findMin: ", findMin(tree1.root))
-print("findMin recursive: ", findMinRecursive(tree1.root))
+def maxPathSumRecursive(root):
+    if root is None: return float('-inf')
+    if root.left is None and root.right is None:
+        return root.data
+
+    maxVal = max(maxPathSumRecursive(root.left), maxPathSumRecursive(root.right))
+    return root.data + maxVal
+
+#is there a path that equals this number
+
+
+def maxPathSum(root):
+    if root is None: return 0
+
+    stack = [root]
+    currPath = 0
+    while stack:
+        currVal = stack.pop()
+
+        currPath += currVal.data
+
+        if currVal.left and currVal.right:
+            if currVal.left.data > currVal.right.data:
+                stack.append(currVal.left)
+            else:
+                stack.append(currVal.right)
+
+    return currPath
+
+"""
+    
+                                    5
+                                3      7     <-- this is a binary tree
+                            2   4    6  8
+                        1
+                            
+"""
+# print(Level_Order(tree1.root))
+# print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
+# print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
+# print("Recursively: ", findingTargetRecursively(tree1.root, 7))
+# print("sum: ", treeSum(tree1.root))
+# print("sumRecursive: ", treeSumRecursive(tree1.root))
+# print("findMin: ", findMin(tree1.root))
+# print("findMin recursive: ", findMinRecursive(tree1.root))
+print("regular maxPathSum", maxPathSum(tree1.root))
+print("recursive maxPathSum", maxPathSumRecursive(tree1.root))
 
 
