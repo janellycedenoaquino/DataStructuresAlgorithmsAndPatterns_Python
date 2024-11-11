@@ -321,12 +321,38 @@ def treeSumRecursive(root):
     if root is None: return 0
 
     return root.data + treeSumRecursive(root.left) + treeSumRecursive(root.right)
-  
+
+def findMin(root):
+    if root is None: return
+
+    stack = [root]
+    smallest = root.data
+    while stack:
+        curr = stack.pop()
+        smallest = min(curr.data, smallest)
+
+        if curr.right: stack.append(curr.right)
+        if curr.left: stack.append(curr.left)
+
+    return smallest
+
+
+def findMinRecursive(root):
+    if root is None: return float('inf')
+
+    leftVal = findMinRecursive(root.left)
+    rightVal = findMinRecursive(root.right)
+
+    return min(root.data, leftVal, rightVal)
+
+
 print(Level_Order(tree1.root))
 print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
 print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
 print("Recursively: ", findingTargetRecursively(tree1.root, 7))
 print("sum: ", treeSum(tree1.root))
 print("sumRecursive: ", treeSumRecursive(tree1.root))
+print("findMin: ", findMin(tree1.root))
+print("findMin recursive: ", findMinRecursive(tree1.root))
 
 
