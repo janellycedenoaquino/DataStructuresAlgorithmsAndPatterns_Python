@@ -321,7 +321,7 @@ def treeSumRecursive(root):
     if root is None: return 0
 
     return root.data + treeSumRecursive(root.left) + treeSumRecursive(root.right)
-
+  
 print(Level_Order(tree1.root))
 print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
 print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
