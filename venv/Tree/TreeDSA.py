@@ -300,9 +300,38 @@ def findingTargetRecursively(root, val):
                         1
                             
 """
+
+
+def treeSum(root):
+    if root is None: return False
+
+    total = 0
+    stack = [root]
+    while stack:
+        curr = stack.pop()
+        total += curr.data
+
+        if curr.right: stack.append(curr.right)
+        if curr.left: stack.append(curr.left)
+
+    return total
+
+
+def treeSumRecursive(root, total = 0):
+    if root is None: return False
+
+    total += root.data
+    total += treeSumRecursive(root.left, total) + treeSumRecursive(root.left, total)
+
+    return total
+
+
+
 print(Level_Order(tree1.root))
 print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
 print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
 print("Recursively: ", findingTargetRecursively(tree1.root, 7))
+print("sum: ", treeSum(tree1.root))
+print("sumRecursive: ", treeSum(tree1.root))
 
 
