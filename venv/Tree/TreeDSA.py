@@ -284,12 +284,13 @@ def find_target_in_treeBFS(root, target):
 
         finalVal.append(curr.data)
 
-
     return finalVal
 
 
-
-
+def findingTargetRecursively(root, val):
+    if root is None: return False
+    if root.data is val: return True
+    return findingTargetRecursively(root.left, val) or findingTargetRecursively(root.right, val)
 
 """
     
@@ -302,5 +303,6 @@ def find_target_in_treeBFS(root, target):
 print(Level_Order(tree1.root))
 print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
 print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
+print("Recursively: ", findingTargetRecursively(tree1.root, 7))
 
 
