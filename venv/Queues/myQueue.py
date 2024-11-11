@@ -97,16 +97,4 @@ def list_of_binary(number):
     return list_of_numbers
 
 
-queue1 = queue.Queue()  # when using the extra.Queue() you must use get
-queue1.put(1)  # put vs append
-queue1.put(7)
-queue1.put(9)
-# queue1.get()
-# print(queue1.qsize())
-# queue1.join()
-# print(queue1.get())  # when using the regular queue you must use popleft()
-# print(queue1.full())
-# print(queue1.)
-# print(list(queue1.queue))
-
 
