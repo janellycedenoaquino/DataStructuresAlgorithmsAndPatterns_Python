@@ -97,22 +97,6 @@ def list_of_binary(number):
     return list_of_numbers
 
 
-# queueVal = list_of_binary(10)
-# print(queueVal.print())
-# newQueue = Queue(7)
-# newQueue.enqueue(8)
-# newQueue.enqueue(3)
-# newQueue.enqueue(2)
-# newQueue.enqueue(4)
-# newQueue.enqueue(5)
-# print(newQueue.print())
-# popped = newQueue.dequeue()
-# print("pop: ", popped)
-# print("first: ", newQueue.first().data)
-# print("last: ", newQueue.last().data)
-# print(newQueue.print())
-
-
 queue1 = queue.Queue()  # when using the extra.Queue() you must use get
 queue1.put(1)  # put vs append
 queue1.put(7)
