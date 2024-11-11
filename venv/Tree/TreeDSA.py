@@ -56,6 +56,11 @@ Level-Order Travesal:
         print 5 and find 5 children has none no more queue and no more elements
         return
 
+
+
+a root is a node that has no parents
+
+
 """
 from collections import deque
 
@@ -238,13 +243,64 @@ def find_max_val_in_binarytree_recursive(root):
     return result
 
 
-
 tree1 = BinaryTree()
 tree1.createBinaryTree()
 
 
+def find_target_in_treeDFS(root, target):
+    if root is None:
+        return False
+
+    stack = [root]
+    val = []
+    while stack:
+        current = stack.pop()
+        if current.data is target:
+            return True
+
+        val.append(current.data)
+
+        if current.right: stack.append(current.right)
+        if current.left: stack.append(current.left)
+
+    return val
+
+
+def find_target_in_treeBFS(root, target):
+    if root is None:
+        return False
+
+    q = deque()
+    q.append(root)
+    finalVal = []
+    while q:
+        curr = q.popleft()
+
+        if curr.data is target:
+            return True
+
+        if curr.left: q.append(curr.left)
+        if curr.right: q.append(curr.right)
+
+        finalVal.append(curr.data)
+
+
+    return finalVal
 
 
 
+
+
+"""
+    
+                                    5
+                                3      7     <-- this is a binary tree
+                            2   4    6  8
+                        1
+                            
+"""
+print(Level_Order(tree1.root))
+print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
+print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
 
 

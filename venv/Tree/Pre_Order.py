@@ -40,3 +40,4 @@ def Regular_Pre_Ord(root):
 
 print(Regular_Pre_Ord(newTree.root))
 
+
