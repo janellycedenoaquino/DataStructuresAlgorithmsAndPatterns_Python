@@ -37,8 +37,3 @@ def fibonacci(idx):
 
     return fibonacci(idx-1) + fibonacci(idx-2)
 
-
-print(fibonacci(15))
-# print(allPositiveEvenNums(10))
-# print(reverse_string("hello"))
-# print(factorial(7))
