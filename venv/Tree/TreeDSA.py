@@ -370,3 +370,62 @@ def maxPathSum(root):
 
     return currPath
 
+
+def calculate_height_of_tree(root):
+    if root is None:
+        return -1
+
+    stack = [root]
+    total = 0
+    while stack:
+        current = stack.pop()
+        total += 1
+        if current.left:
+            stack.append(current.left)
+            total += 1
+        if current.right:
+            stack.append(current.right)
+            total += 1
+
+    return round(total / 4)
+
+
+def calculate_height_of_tree_Recursive(root):
+    if root is None:
+        return -1
+
+    leftHeight = calculate_height_of_tree_Recursive(root.left)
+    rightHeight = calculate_height_of_tree_Recursive(root.right)
+    return 1 + max(leftHeight, rightHeight)
+
+
+def Size_of_Tree_Recursive(root):
+    if root is None:
+        return 0
+
+    leftSize = Size_of_Tree_Recursive(root.left)
+    rightSize = Size_of_Tree_Recursive(root.right)
+
+    return 1 + leftSize + rightSize
+
+
+def Size_of_Tree(root):
+    if root is None:
+        return 0
+
+    stack = [root]
+    size = 1
+    while stack:
+        current = stack.pop()
+
+        if current.left:
+            stack.append(current.left)
+            size += 1
+        if current.right:
+            stack.append(current.right)
+            size += 1
+    return size
+
+
+newTree = BinaryTree()
+newTree.createBinaryTree()
