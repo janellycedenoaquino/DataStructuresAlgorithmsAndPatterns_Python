@@ -61,6 +61,10 @@ Level-Order Travesal:
 a root is a node that has no parents
 
 
+5
+3      7     <-- this is a binary tree
+2   4    6  8
+1
 """
 from collections import deque
 
@@ -345,7 +349,7 @@ def maxPathSumRecursive(root):
     maxVal = max(maxPathSumRecursive(root.left), maxPathSumRecursive(root.right))
     return root.data + maxVal
 
-#is there a path that equals this number
+# is there a path that equals this number
 
 
 def maxPathSum(root):
@@ -365,24 +369,4 @@ def maxPathSum(root):
                 stack.append(currVal.right)
 
     return currPath
-
-"""
-    
-                                    5
-                                3      7     <-- this is a binary tree
-                            2   4    6  8
-                        1
-                            
-"""
-# print(Level_Order(tree1.root))
-# print("DFS: ", find_target_in_treeDFS(tree1.root, 0))
-# print("BFS: ", find_target_in_treeBFS(tree1.root, 7))
-# print("Recursively: ", findingTargetRecursively(tree1.root, 7))
-# print("sum: ", treeSum(tree1.root))
-# print("sumRecursive: ", treeSumRecursive(tree1.root))
-# print("findMin: ", findMin(tree1.root))
-# print("findMin recursive: ", findMinRecursive(tree1.root))
-print("regular maxPathSum", maxPathSum(tree1.root))
-print("recursive maxPathSum", maxPathSumRecursive(tree1.root))
-
 

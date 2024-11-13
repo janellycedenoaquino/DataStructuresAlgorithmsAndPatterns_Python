@@ -19,7 +19,7 @@ def Recursive_Pre_Ord(root):
 
 newTree = BinaryTree()
 newTree.createBinaryTree()
-print("from Recursive_Pre_Ord: ", Recursive_Pre_Ord(newTree.root))
+# print("from Recursive_Pre_Ord: ", Recursive_Pre_Ord(newTree.root))
 
 
 def Regular_Pre_Ord(root):
@@ -38,6 +38,6 @@ def Regular_Pre_Ord(root):
     print(ans)
 
 
-print(Regular_Pre_Ord(newTree.root))
+# print(Regular_Pre_Ord(newTree.root))
 
 
