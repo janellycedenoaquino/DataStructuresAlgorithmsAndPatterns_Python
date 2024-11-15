@@ -182,6 +182,43 @@ class BinaryTree:
 
         _insert_recursive(self.root, val)
 
+    def createMaxHeap(self):
+        rootNode = TreeNode(9)
+        left = TreeNode(3)
+        right = TreeNode(6)
+        left_left = TreeNode(2)
+        left_right = TreeNode(1)
+        right_left = TreeNode(5)
+        right_right = TreeNode(4)
+
+        self.root = rootNode
+        rootNode.left = left
+        rootNode.right = right
+
+        left.left = left_left
+        left.right = left_right
+
+        right.left = right_left
+        right.right = right_right
+
+    def createMinHeap(self):
+        rootNode = TreeNode(0)
+        left = TreeNode(7)
+        right = TreeNode(3)
+        left_left = TreeNode(9)
+        left_right = TreeNode(8)
+        right_left = TreeNode(5)
+        right_right = TreeNode(6)
+
+        self.root = rootNode
+        rootNode.left = left
+        rootNode.right = right
+
+        left.left = left_left
+        left.right = left_right
+
+        right.left = right_left
+        right.right = right_right
     def createBinaryTree(self):
         rootNode = TreeNode(5)
         left = TreeNode(3)
