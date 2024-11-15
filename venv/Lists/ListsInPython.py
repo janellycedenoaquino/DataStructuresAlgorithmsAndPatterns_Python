@@ -83,10 +83,32 @@ def searchMatrix(matrix, n, x):
             i += 1
     return "no such value"
 
+def printMatrix(matrix, n):
+    if matrix is None:
+        return 0
+
+    i = 0
+    j = 0
+    string = ""
+    m = []
+    while i < n and j >= 0:
+        m.append(matrix[i][j])
+
+        j += 1
+        if j == n:
+            string += str(m)+ '\n'
+            m.clear()
+            j = 0
+            i += 1
+
+    return string
+
 
 example = [3, 4]
 example_item = myList([8, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 7])
 matrix1 = [[10, 20, 30, 40], [15, 25, 35, 45], [27, 29, 37, 48], [32, 33, 39, 51]]
+matrix2 = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+print(printMatrix(matrix2, 4))
 # example_item.print_items_clean()
 # example_item.reverse_items()
 # example_item.print_items_clean()
