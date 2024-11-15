@@ -61,10 +61,10 @@ Level-Order Travesal:
 a root is a node that has no parents
 
 
-5
-3      7     <-- this is a binary tree
-2   4    6  8
-1
+                                5
+                            3       7     <-- this is a binary search tree
+                        2    4    6   8
+                    1
 """
 from collections import deque
 
@@ -165,6 +165,23 @@ class BinaryTree:
     def __init__(self, root_=None):
         self.root = root_
 
+    def insert(self, val):
+        if self.root is None:
+            self.root = TreeNode(val)
+            return self.root.data
+
+        def _insert_recursive(curr_node, val):
+            if curr_node is None:
+                return TreeNode(val)
+
+            if val < curr_node.data:
+                curr_node.left = _insert_recursive(curr_node.left, val)
+            else:
+                curr_node.right = _insert_recursive(curr_node.right, val)
+            return curr_node
+
+        _insert_recursive(self.root, val)
+
     def createBinaryTree(self):
         rootNode = TreeNode(5)
         left = TreeNode(3)
@@ -194,6 +211,15 @@ class TreeNode:
         self.left = left
         self.right = right
         self.parent = None
+
+
+# newTree = BinaryTree()
+# newTree.insert(5 )
+# print(newTree.root.data)
+# newTree.insert(7)
+# print(newTree.root.data)
+# newTree.insert(3)
+# print(newTree.root.data)
 
 
 def Level_Order(node):
@@ -245,10 +271,6 @@ def find_max_val_in_binarytree_recursive(root):
     right = find_max_val_in_binarytree_recursive(root.right)
     result = max(result, left, right)
     return result
-
-
-tree1 = BinaryTree()
-tree1.createBinaryTree()
 
 
 def find_target_in_treeDFS(root, target):
@@ -425,7 +447,3 @@ def Size_of_Tree(root):
             stack.append(current.right)
             size += 1
     return size
-
-
-newTree = BinaryTree()
-newTree.createBinaryTree()

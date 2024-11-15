@@ -6,4 +6,11 @@
     <orderEntry type="jdk" jdkName="Python 3.12 (venv)(DataStructuresAlgorithmsAndPatterns_Python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/venv" />
+      </list>
+    </option>
+  </component>
 </module>
